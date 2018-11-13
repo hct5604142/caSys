@@ -1,5 +1,4 @@
-@section('ContentPanel')
-    <div class="row">
-        11111
-    </div>
+@extends('dashboard')
+@section('content')
+
 @endsection
