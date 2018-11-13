@@ -17,7 +17,7 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::post('/login','LoginController');
+Route::post('/login','LoginController@login');
 
 //Route::post('/login','registorController@create');
 
@@ -26,8 +26,11 @@ Route::group(['middleware' => ['checklogin']], function() {
         return view('welcome');
     });
     Route::post('/','registorController@create');
-    Route::get('/dashbord', function () {
-        return view('dashbord');
-    })->name('dashbord');
-
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/logout','LogoutController');
+    Route::get('/1',function (){
+        return view('1');
+    });
  });

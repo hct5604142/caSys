@@ -18,10 +18,9 @@ class CheckLogin
     {
 
         if( !$request->session()->has('login')){
-            dump($request->session());
-           //return redirect('/login');
-        }else{
 
+           return redirect('/login');
+        }else{
         }
         return $next($request);
 
