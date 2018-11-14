@@ -47,10 +47,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dashboard
+        {{ $title ?? 'Dashboard' }}
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
+        @inject('aaa','App\Presenters\AppPresenter')
+        {!! $aaa->showCrumbs($crumbs) !!}
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
@@ -58,6 +60,7 @@
 
     <!-- Main content -->
     <section class="content">
+
       @yield('content')
     </section>
     <!-- /.content -->

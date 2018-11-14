@@ -13,4 +13,5 @@ interface UserRepository extends RepositoryInterface
 {
     //
     public function findById($id);
+    public function createUser($id,$name,$password);
 }

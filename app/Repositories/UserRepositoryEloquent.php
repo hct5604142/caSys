@@ -7,6 +7,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\UserRepository;
 use App\Models\User;
 use App\Validators\UserValidator;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class UserRepositoryEloquent.
@@ -54,6 +55,20 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         }else{
             return $user;
         }
+    }
+
+    public function createUser($id,$name,$password){
+        $user=new User();
+        $user->id=$id;
+        $user->name=$name;
+        $user->password=Hash::make($password);
+        try{
+            $user->save();
+            return '保存成功';
+        }catch (\Exception $exception){
+            return $exception->getMessage();
+        }
+
     }
 
 }
