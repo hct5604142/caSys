@@ -4,7 +4,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>Alexander Pierce</p>
@@ -138,21 +138,15 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-folder"></i> <span>Examples</span>
+                    <i class="fa fa-folder"></i> <span>账户功能</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-                    <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-                    <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-                    <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                    <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-                    <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-                    <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-                    <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-                    <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
+                    <li><a href="{{asset('/auth/add')}}"><i class="fa fa-circle-o"></i> 增加账户</a></li>
+                    <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> 更改角色</a></li>
+                    <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> 更改权限</a></li>
                 </ul>
             </li>
             <li class="treeview">

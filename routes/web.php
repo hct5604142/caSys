@@ -30,7 +30,7 @@ Route::group(['middleware' => ['checklogin']], function() {
         return view('dashboard');
     })->name('dashboard');
     Route::get('/logout','LogoutController');
-    Route::get('/1',function (){
-        return view('1');
+    Route::get('/auth/add',function (){
+        return view('layers.auth.add_user');
     });
  });
