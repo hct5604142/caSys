@@ -52,7 +52,7 @@
       </h1>
       <ol class="breadcrumb">
         @inject('aaa','App\Presenters\AppPresenter')
-        {!! $aaa->showCrumbs($crumbs) !!}
+        {!! $aaa->showCrumbs($crumbs ?? null) !!}
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>

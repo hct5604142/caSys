@@ -5,6 +5,9 @@ namespace App\Presenters;
 class AppPresenter
 {
     public function showCrumbs($message){
+        if($message==null){
+            return $message;
+        }
        $htmlArray = json_decode($message);
        $htmlString = '';
         foreach($htmlArray as $x=>$x_value) {
