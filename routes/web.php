@@ -12,7 +12,10 @@
 */
 
 
-
+Route::get('/test/1',function (){
+    return view('test.post');
+});
+Route::get('/test/2','test\PostController@createAjax');
 Route::get('/login', function () {
     return view('login');
 });
