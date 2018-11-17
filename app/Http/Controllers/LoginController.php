@@ -37,15 +37,18 @@ class LoginController extends Controller
 
      private function setUserSession(User $user,Request $request){
          $ua_uxrs=Ua_uxr::where('uid',$user->id)->get();
-         $permission="";
+         $roles="";
+         $permissions="";
          foreach ($ua_uxrs as $ua_uxr){
+             $roles=$roles.$ua_uxr->rid.',';
              $pa_pxrs=Pa_pxr::where('rid',$ua_uxr->rid)->get();
              foreach ($pa_pxrs as $pa_pxr){
-                 $permission=$permission.$pa_pxr->pid.',';
+                 $permissions=$permissions.$pa_pxr->pid.',';
              }
          }
          $request->session()->put('uid',$user->id);
          $request->session()->put('login',true);
-         $request->session()->put('permission',$permission);
+         $request->session()->put('rid',$roles);
+         $request->session()->put('permission',$permissions);
      }
 }

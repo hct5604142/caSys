@@ -36,4 +36,5 @@ Route::group(['middleware' => ['checklogin']], function() {
     Route::get('/auth/add','Auth\UserAddController@show');
 
     Route::post('/auth/add','Auth\UserAddController@save');
+    Route::get('/auth/user_manage','Auth\UserManageController@show');
  });

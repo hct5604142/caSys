@@ -11,11 +11,7 @@ class AppPresenter
        $htmlArray = json_decode($message);
        $htmlString = '';
         foreach($htmlArray as $x=>$x_value) {
-            if($x!="首页"){
-                $htmlString ='/<a href="'.$x_value.'">'.$x.'</a>'.$htmlString;
-            }else{
-                $htmlString ='<a href="'.$x_value.'">'.$x.'</a>'.$htmlString;
-            }
+                $htmlString ='<li><button type="button" class="btn margin"><a href="'.$x_value.'">'.$x.'</a></button></li>'.$htmlString;
         }
         return($htmlString);
 

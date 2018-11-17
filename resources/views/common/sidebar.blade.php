@@ -144,7 +144,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{asset('/auth/show')}}"><i class="fa fa-circle-o"></i> 账户列表</a></li>
+                    <li><a href="{{asset('/auth/user_manage')}}"><i class="fa fa-circle-o"></i> 账户管理</a></li>
                     <li><a href="{{asset('/auth/add')}}"><i class="fa fa-circle-o"></i> 增加账户</a></li>
                     <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> 更改权限</a></li>
                 </ul>

@@ -25,7 +25,7 @@ class userAddController extends Controller
         $id=5;
         $title=$this->appService->getClassifyName($id);
         $crumbs=$this->appService->getCrumbs($id);
-        return view('layers.auth.add_user',compact('title','crumbs','crumbs'));
+        return view('layers.auth.add_user',compact('title','crumbs'));
     }
 
     public function save(UserAddRequest $userAddRequest){
