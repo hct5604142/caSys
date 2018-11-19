@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.53)
-# Date: 2018-11-15 21:48:17
+# Date: 2018-11-19 13:37:22
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -22,7 +22,7 @@ CREATE TABLE `crumbs` (
 #
 
 /*!40000 ALTER TABLE `crumbs` DISABLE KEYS */;
-INSERT INTO `crumbs` VALUES (1,'首页','/dashboard',NULL),(2,'用户列表','/auth/show',1),(3,'角色管理','/auth/roles',1),(4,'权限管理','/auth/permissions',1),(5,'添加用户','/auth/add_user',1);
+INSERT INTO `crumbs` VALUES (1,'首页','/dashboard',NULL),(2,'账户管理','/auth/user_manage',1),(3,'角色管理','/auth/roles',1),(4,'权限管理','/auth/permissions',1),(5,'添加用户','/auth/add_user',1);
 /*!40000 ALTER TABLE `crumbs` ENABLE KEYS */;
 
 #
@@ -121,6 +121,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `state` tinyint(1) NOT NULL DEFAULT '1' COMMENT '判断是否启用',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -129,5 +130,5 @@ CREATE TABLE `users` (
 #
 
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('302841','hct','$2y$10$LUAeSBFm7w6mviq43c.4HeN7ZhlBdw9macIg37ipp/Z8.KGUwYcue','2018-11-10 21:24:01','2018-11-10 21:24:01');
+INSERT INTO `users` VALUES ('302841','hct','$2y$10$LUAeSBFm7w6mviq43c.4HeN7ZhlBdw9macIg37ipp/Z8.KGUwYcue','2018-11-10 21:24:01','2018-11-10 21:24:01',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
