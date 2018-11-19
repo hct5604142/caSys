@@ -16,13 +16,6 @@
                 <div class="box-body">
                     <table id="example1" class="table table-bordered table-hover dataTable" style="width:100%">
                         <thead>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                        </tr>
                         </thead>
                     </table>
                 </div>
@@ -30,9 +23,11 @@
         </div>
     </div>
     <script>
-        var data=JSON.parse({!! $users !!});
+        var jsonString=eval('{!! $users !!}');
     </script>
     <script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{asset('bower_components/datatables-buttons/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('bower_components/datatables-editor/dataTables.editor.js')}}"></script>
     <script src="{{asset('dist/js/pages/user_manage.js')}}" ></script>
 @endsection
