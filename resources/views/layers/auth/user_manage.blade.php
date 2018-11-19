@@ -16,6 +16,15 @@
                 <div class="box-body">
                     <table id="example1" class="table table-bordered table-hover dataTable" style="width:100%">
                         <thead>
+                        <tr>
+                            <th>用户名</th>
+                            <th>姓名</th>
+                            <th>密码</th>
+                            <th>创建时间</th>
+                            <th width="18%">更新时间</th>
+                            <th>当前状态</th>
+                            <th>操作</th>
+                        </tr>
                         </thead>
                     </table>
                 </div>

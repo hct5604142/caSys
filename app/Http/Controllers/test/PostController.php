@@ -13,6 +13,9 @@ class PostController extends Controller
     //
     public function createAjax(Request $request){
         $a=User::all()->toArray();
+        for($i=0;$i<count($a);$i++){
+            $a[$i]['DT_RowId']='row_'.$i;
+        }
         $b=array("data"=>$a);
         return json_encode($b,JSON_UNESCAPED_UNICODE);
 

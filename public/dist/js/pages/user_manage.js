@@ -1,27 +1,49 @@
-var data=[];
-for (var k=0;k<jsonString.length;k++){
-    var a=[];
-    for (let i in jsonString[k]){
-        a.push(jsonString[k][i]);
-    }
-    data.push(a);
-}
 $(function () {
-    $('#example1').DataTable({
+    editor = new $.fn.dataTable.Editor( {
+        table: "#example1",
+        ajax: "../test/2",
+        fields: [ {
+            label: "账户",
+            name: "id"
+        }, {
+            name: "name"
+        }, {
+            label: "密码:",
+            name: "password"
+        }, {
+            label: "Office:",
+            name: "office"
+        }, {
+            label: "Extension:",
+            name: "created_at"
+        }, {
+            label: "Start date:",
+            name: "updated_at",
+            type: "datetime"
+        }, {
+            label: "Salary:",
+            name: "state"
+        }
+        ]
+    } );
+    $('#example1').on( 'click', 'tbody td:not(:first-child)', function (e) {
+        editor.inline( this );
+    } );
+    var table=$('#example1').DataTable({
        // data:data,
+
         "ajax":{ // 获取数据
             "url":"../test/2",
             "dataType":"json" //返回来的数据形式
         },
         "columns":[ //定义列数据来源
-            {'title':"id",'data':"id"},
-            {'title':"name",'data':"name"},
-            {'title':"pwd",'data':"password"},//隐藏
-            {'title':"email",'data':"created_at"},
-            {'title':"date",'data':"updated_at"},
-            {'title':"note",'data':"state"},
-            {'title':"note"},
-
+            {'data':"id"},
+            {'data':"name"},
+            {'data':null},//隐藏
+            {'data':"created_at"},
+            {'data':"updated_at"},
+            {'data':"state"},
+            {'data':null},
         ],
         "columnDefs": [ //自定义列
             {
@@ -43,5 +65,9 @@ $(function () {
                 "searchable":false //禁止搜索
             }
         ],
+        select: {
+            style:    'os',
+            selector: 'td:first-child'
+        },
     });
 })
