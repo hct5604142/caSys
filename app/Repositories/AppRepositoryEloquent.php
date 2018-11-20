@@ -26,7 +26,6 @@ class AppRepositoryEloquent extends BaseRepository implements AppRepository
         return App::class;
     }
 
-    
 
     /**
      * Boot up the repository, pushing criteria
@@ -35,15 +34,18 @@ class AppRepositoryEloquent extends BaseRepository implements AppRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    public function getCrumbNameById($id){
-        $crumb=Crumb::find($id);
+
+    public function getCrumbNameById($id)
+    {
+        $crumb = Crumb::find($id);
         return $crumb->name;
     }
 
-    public function getCrumbById($id){
-        $crumb=Crumb::find($id);
+    public function getCrumbById($id)
+    {
+        $crumb = Crumb::find($id);
         return $crumb;
     }
 
-    
+
 }

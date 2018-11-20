@@ -18,13 +18,14 @@ class AppService
         return $this->appRepository->getCrumbNameById($id);
     }
 
-    public function getCrumbs($id){
-        $crumbs=[];
-        $crumb=$this->appRepository->getCrumbById($id);
-        $crumbs[$crumb->name]=$crumb->uri;
-        while($crumb->pid!=null){
-            $crumb=$this->appRepository->getCrumbById($crumb->pid);
-            $crumbs[$crumb->name]=$crumb->uri;
+    public function getCrumbs($id)
+    {
+        $crumbs = [];
+        $crumb = $this->appRepository->getCrumbById($id);
+        $crumbs[$crumb->name] = $crumb->uri;
+        while ($crumb->pid != null) {
+            $crumb = $this->appRepository->getCrumbById($crumb->pid);
+            $crumbs[$crumb->name] = $crumb->uri;
         }
         return json_encode($crumbs);
 

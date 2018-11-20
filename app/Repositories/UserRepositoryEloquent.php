@@ -2,10 +2,12 @@
 
 namespace App\Repositories;
 
+use App\Models\Ua_uxr;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\UserRepository;
 use App\Models\User;
+use App\Models\Role;
 use App\Validators\UserValidator;
 use Illuminate\Support\Facades\Hash;
 
@@ -69,6 +71,38 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
             return $exception->getMessage();
         }
 
+    }
+    public function getUserList(){
+        $usersUn=User::all();
+        $users=$this->getRoles($usersUn);
+        return $users;
+    }
+
+    protected function getRoles($usersUn){
+        foreach ($usersUn as $User){
+            $ua_uxrs=Ua_uxr::where('uid',$User->id)->get();
+            $roles="";
+            foreach ($ua_uxrs as $ua_uxr){
+                $roles=Role::find($ua_uxr->rid)->name;
+            }
+            $User->roles=$roles;
+        }
+        return $usersUn;
+    }
+
+    public function  saveUserName($id, $name){
+        $user = User::find($id);
+        $user->name=$name;
+        $user->save();
+        $user = User::find($id);
+        $ua_uxrs=Ua_uxr::where('uid',$id)->get();
+        $roles="";
+        foreach ($ua_uxrs as $ua_uxr){
+            $roles=Role::find($ua_uxr->rid)->name;
+        }
+        $user->roles=$roles;
+        $userWithRoles=$user->toArray();
+        return $userWithRoles;
     }
 
 }
