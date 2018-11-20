@@ -29,7 +29,6 @@ class userAddController extends Controller
     }
 
     public function save(UserAddRequest $userAddRequest){
-        $state=$this->userService->createUser($userAddRequest->input('user_id'),$userAddRequest->input('user_name'),$userAddRequest->input('user_password'));
-        return redirect()->back()->with('state',$state);
+        return $this->userService->createUser($userAddRequest->input('data.0.id'),$userAddRequest->input('data.0.name'),$userAddRequest->input('data.0.password'));
     }
 }

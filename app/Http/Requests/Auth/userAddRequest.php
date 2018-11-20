@@ -24,16 +24,21 @@ class UserAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id'=>'required|unique:users,id|digits_between:6,7',
-            'user_name'=>'required',
-            'user_password'=>'required|confirmed|alpha_num|between:6,20',
+            'data.*.id'=>'required|unique:users,id|digits_between:6,7',
+            'data.*.name'=>'required',
+            'data.*.password'=>'required|alpha_num|between:6,20',
         ];
     }
 
     public function messages()
     {
+        $data=array();
+        $field=['name'=>'id','status'=>'账号必须填写'];
+        $field=array($field);
+        $total=array('fieldErrors'=>$field,'data'=>$data);
+
         return [
-            'user_id.required'=> '用户名必填',
+            'data.*.id.required'=> $total,
             'user_id.unique'=>'用户名已被使用',
             'user_id.digits_between'=>'请使用6-7位数字',
             'user_name.required'=>'请填写姓名',
@@ -44,3 +49,4 @@ class UserAddRequest extends FormRequest
             ];
     }
 }
+

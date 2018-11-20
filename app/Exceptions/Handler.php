@@ -2,8 +2,10 @@
 
 namespace App\Exceptions;
 
-use Exception;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+    use Exception;
+    use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\AuthenticationException;
 
 class Handler extends ExceptionHandler
 {
@@ -29,6 +31,8 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
+     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
+     *
      * @param  \Exception  $exception
      * @return void
      */
@@ -47,5 +51,33 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         return parent::render($request, $exception);
+    }
+
+
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+
+        if($request->expectsJson()){
+            $response=response()->json([
+                'status'=>3,
+                'msg' => $exception->getMessage(),
+                'errors'=>[],
+            ], 200);
+        }else{
+            $response=redirect()->guest(route('login'));
+        }
+        return $response;
+    }
+
+    protected function invalidJson($request, ValidationException $exception)
+    {
+        //return response()->json([
+           // 'status'=>2,
+            //'msg' => $exception->getMessage(),
+            //'errors' => $exception->errors(),
+        //], $exception->status);
+        return response()->json(
+            $exception->errors()['data.0.id'][0]
+        );
     }
 }

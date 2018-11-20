@@ -13,10 +13,9 @@
                             <th></th>
                             <th>用户名</th>
                             <th>姓名</th>
-                            <th>密码</th>
                             <th>角色</th>
                             <th>创建时间</th>
-                            <th width="18%">更新时间</th>
+                            <th>更新时间</th>
                             <th>当前状态</th>
                         </tr>
                         </thead>
@@ -32,5 +31,6 @@
     <script src="{{asset('bower_components/datatables-buttons/dataTables.buttons.min.js')}}"></script>
     <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <script src="{{asset('bower_components/datatables-editor/dataTables.editor.js')}}"></script>
+    <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('dist/js/pages/user_manage.js')}}"></script>
 @endsection

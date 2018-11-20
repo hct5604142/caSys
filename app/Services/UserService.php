@@ -20,7 +20,7 @@ class UserService
 
     public function createUser($id,$name,$password)
     {
-        return $this->userRepository->createUser($id,$name,$password);
+        return $this->successJsonFomate($this->userRepository->createUser($id,$name,$password));
     }
     public function getUserList(){
          $a = $this->userRepository->getUserList()->toArray();
@@ -40,6 +40,10 @@ class UserService
             $content = $x_value;
         }
         $user=$this->userRepository->saveUserName($id,$content['name']);
+        return $this->successJsonFomate($user);
+    }
+
+    protected  function  successJsonFomate($user){
         $user['DT_RowId'] = $user['id'];
         $user=array($user);
         $user =array('data'=>$user);

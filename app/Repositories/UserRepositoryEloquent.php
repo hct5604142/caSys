@@ -64,9 +64,13 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         $user->id=$id;
         $user->name=$name;
         $user->password=Hash::make($password);
+        $user->state=1;
         try{
-            $user->save();
-            return '保存成功';
+            if($user->save()){
+               return $this->addRole($id,$user);
+            }else{
+
+            }
         }catch (\Exception $exception){
             return $exception->getMessage();
         }
@@ -95,12 +99,17 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         $user->name=$name;
         $user->save();
         $user = User::find($id);
+        return $this->addRole($id,$user);
+    }
+
+    protected function addRole($id,User $user){
         $ua_uxrs=Ua_uxr::where('uid',$id)->get();
         $roles="";
         foreach ($ua_uxrs as $ua_uxr){
             $roles=Role::find($ua_uxr->rid)->name;
         }
         $user->roles=$roles;
+        $user->id=$id;
         $userWithRoles=$user->toArray();
         return $userWithRoles;
     }
