@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.53)
-# Date: 2018-11-19 15:24:37
+# Date: 2018-11-20 17:24:08
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -107,7 +107,7 @@ CREATE TABLE `ua_uxrs` (
 #
 
 /*!40000 ALTER TABLE `ua_uxrs` DISABLE KEYS */;
-INSERT INTO `ua_uxrs` VALUES ('302841','1','2018-11-10 14:18:28','2018-11-10 14:18:28');
+INSERT INTO `ua_uxrs` VALUES ('302841','1','2018-11-10 14:18:28','2018-11-10 14:18:28'),('302842','1','2018-11-10 14:18:28','2018-11-10 14:18:28');
 /*!40000 ALTER TABLE `ua_uxrs` ENABLE KEYS */;
 
 #
@@ -130,5 +130,5 @@ CREATE TABLE `users` (
 #
 
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('302841','hct','$2y$10$LUAeSBFm7w6mviq43c.4HeN7ZhlBdw9macIg37ipp/Z8.KGUwYcue','2018-11-10 21:24:01','2018-11-10 21:24:01',1),('302842','hct','$2y$10$JeiUElr9OEKWkv61nmQe7ecUfoQKcqxiuVnBjv.jORfS8FjY1EkNa','2018-11-19 13:41:02','2018-11-19 13:41:02',1);
+INSERT INTO `users` VALUES ('302841','胡长霆','$2y$10$LUAeSBFm7w6mviq43c.4HeN7ZhlBdw9macIg37ipp/Z8.KGUwYcue','2018-11-10 21:24:01','2018-11-19 22:16:48',1),('302842','我我我','$2y$10$JeiUElr9OEKWkv61nmQe7ecUfoQKcqxiuVnBjv.jORfS8FjY1EkNa','2018-11-19 13:41:02','2018-11-19 23:14:43',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
