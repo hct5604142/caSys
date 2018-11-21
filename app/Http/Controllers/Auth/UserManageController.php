@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\Auth\UserPassEditRequest;
 use App\Models\Ua_uxr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,6 +11,7 @@ use App\Services\UserService;
 use App\Repositories\AppRepository;
 use App\Repositories\UserRepository;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserManageController extends Controller
 {
@@ -58,8 +60,38 @@ class UserManageController extends Controller
         foreach ($roles as $Ua_uxr) {
             $Ua_uxr->delete();
         }
-        if($state==1){
+        if($state){
             return json_encode(array('data'=>''));
+        }
+    }
+
+    public function  editUserPass(UserPassEditRequest $request){
+        $id="";
+        $password="";
+        foreach ($request->input('data') as $x=>$y){
+            $id=$x;
+            $password=$y['password'];
+        }
+        $state=User::find($id)->update(['password'=>Hash::make($password)]);
+        if($state){
+            $user=User::find($id);
+            $user->DT_RowId=$id;
+            return json_encode(array('data'=>[$user->toArray()]));
+        }
+    }
+
+    public function  editUserState(Request $request){
+        $id="";
+        $userState="";
+        foreach ($request->input('data') as $x=>$y){
+            $id=$x;
+            $userState=$y['state'];
+        }
+        $state=User::find($id)->update(['state'=>$userState]);
+        if($state){
+            $user=User::find($id);
+            $user->DT_RowId=$id;
+            return json_encode(array('data'=>[$user->toArray()]));
         }
     }
 }

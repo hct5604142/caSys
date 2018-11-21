@@ -53,7 +53,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         // TODO: Implement findById() method.
         $user=User::find($id);
         if($user!=null){
-            return $user=User::find($id)->first()->get()[0];
+            return $user=User::find($id);
         }else{
             return $user;
         }

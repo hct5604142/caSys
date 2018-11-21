@@ -32,8 +32,6 @@ class UserAddRequest extends FormRequest
 
     public function messages()
     {
-
-
         return [
             'data.0.id.required'=> ['name'=>'id','status'=>'账号必须填写'],
             'data.0.id.unique'=>['name'=>'id','status'=>'用户名已被使用'],

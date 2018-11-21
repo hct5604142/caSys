@@ -71,7 +71,7 @@ $(function () {
     editorPass = new $.fn.dataTable.Editor({
         table: "#example1",
         ajax: {
-            url: "../auth/add",
+            url: "../auth/edit_pass",
             type: "POST",
             data: {
                 _token: csrf_token,
@@ -80,9 +80,31 @@ $(function () {
         },
         fields: [ {
             label: '新密码',
-            defaultContent:"",
+            def:'',
             name: "password",
             type:'password',
+        },
+        ]
+    });
+    editorState = new $.fn.dataTable.Editor({
+        table: "#example1",
+        ajax: {
+            url: "../auth/edit_state",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+        fields: [ {
+            label: '更改状态',
+            def:'',
+            name: "state",
+            type:'radio',
+            options: [
+                { label: "启用", value: 1 },
+                { label: "关闭使用",  value: 0 }
+            ],
         },
         ]
     });
@@ -104,7 +126,9 @@ $(function () {
             {'data': 'roles'},
             {'data': "created_at"},
             {'data': "updated_at"},
-            {'data': "state"},
+            {'data': "state","render":function (val, type, row) {
+                return val==1?"已启用":'禁止启用';
+            }},
         ],
         "columnDefs": [ //自定义列
             // {
@@ -147,6 +171,13 @@ $(function () {
             {
                 text: '重置密码',
                 editor:editorPass,
+                extend: 'edit',
+                formTitle:'重置密码',
+                formButtons:'提交',
+            },
+            {
+                text: '修改状态',
+                editor:editorState,
                 extend: 'edit',
                 formTitle:'重置密码',
                 formButtons:'提交',
