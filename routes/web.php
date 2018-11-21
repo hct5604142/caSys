@@ -40,4 +40,6 @@ Route::group(['middleware' => ['checklogin']], function () {
 
     Route::get('/auth/show_list', 'Auth\UserManageController@showUserList');
     Route::post('/auth/update_name', 'Auth\UserManageController@updateName');
+
+    Route::post('/auth/del', 'Auth\UserManageController@delUser');
 });

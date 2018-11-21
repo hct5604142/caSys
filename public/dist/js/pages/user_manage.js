@@ -21,6 +21,28 @@ $(function () {
         },
         ]
     });
+    editorDel = new $.fn.dataTable.Editor({
+        table: "#example1",
+        ajax: {
+            url: "../auth/del",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+        fields: [{
+            label: '账户',
+            name: "id"
+        }, {
+            label: '姓名',
+            name: "name"
+        }, {
+            label: '密码',
+            name: "roles"
+        },
+        ]
+    });
     editorNewUeser = new $.fn.dataTable.Editor({
         table: "#example1",
         ajax: {
@@ -40,7 +62,8 @@ $(function () {
             name: "name"
         }, {
             label: '密码',
-            name: "password"
+            name: "password",
+            type:'password',
         },
         ]
     });
@@ -58,7 +81,8 @@ $(function () {
         fields: [ {
             label: '新密码',
             defaultContent:"",
-            name: "password"
+            name: "password",
+            type:'password',
         },
         ]
     });
@@ -116,12 +140,16 @@ $(function () {
             {
                 text: '删除管理员',
                 extend: 'remove',
-                editor: editor,
+                editor: editorDel,
+                formTitle: '删除用户（彻底删除）',
+                formButtons: '提交',
             },
             {
                 text: '重置密码',
                 editor:editorPass,
                 extend: 'edit',
+                formTitle:'重置密码',
+                formButtons:'提交',
             },
         ]
     });

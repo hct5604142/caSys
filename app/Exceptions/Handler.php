@@ -76,8 +76,13 @@ class Handler extends ExceptionHandler
             //'msg' => $exception->getMessage(),
             //'errors' => $exception->errors(),
         //], $exception->status);
-        return response()->json(
-            $exception->errors()['data.0.id'][0]
-        );
+        $value=array();
+        foreach ($exception->errors() as $a=>$x_value){
+            $value=$x_value;
+            break;
+        }
+        $field=array($value[0]);
+        $total=array('fieldErrors'=>$field);
+        return response()->json($total);
     }
 }

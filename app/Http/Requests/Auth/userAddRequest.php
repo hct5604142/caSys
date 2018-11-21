@@ -24,28 +24,24 @@ class UserAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'data.*.id'=>'required|unique:users,id|digits_between:6,7',
-            'data.*.name'=>'required',
-            'data.*.password'=>'required|alpha_num|between:6,20',
+            'data.0.id'=>'required|unique:users,id|digits_between:6,7',
+            'data.0.name'=>'required',
+            'data.0.password'=>'required|alpha_num|between:6,20',
         ];
     }
 
     public function messages()
     {
-        $data=array();
-        $field=['name'=>'id','status'=>'账号必须填写'];
-        $field=array($field);
-        $total=array('fieldErrors'=>$field,'data'=>$data);
+
 
         return [
-            'data.*.id.required'=> $total,
-            'user_id.unique'=>'用户名已被使用',
-            'user_id.digits_between'=>'请使用6-7位数字',
-            'user_name.required'=>'请填写姓名',
-            'user_password.required'=>'请填写密码',
-            'user_password.alpha_num'=>'密码为数字和字母',
-            'user_password.between'=>'密码长度为6-8位',
-            'user_password.confirmed'=>'两次密码输入应一致',
+            'data.0.id.required'=> ['name'=>'id','status'=>'账号必须填写'],
+            'data.0.id.unique'=>['name'=>'id','status'=>'用户名已被使用'],
+            'data.0.id.digits_between'=>['name'=>'id','status'=>'请使用6-7位数字'],
+            'data.0.name.required'=>['name'=>'name','status'=>'请填写姓名'],
+            'data.0.password.required'=>['name'=>'password','status'=>'请填写密码'],
+            'data.0.password.alpha_num'=>['name'=>'password','status'=>'密码位数字或字母组成'],
+            'data.0.password.between'=>['name'=>'password','status'=>'密码长度位6-20位'],
             ];
     }
 }
