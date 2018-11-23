@@ -111,11 +111,11 @@ $(function () {
     $('#example1').on('click', 'tbody td:nth-child(3)', function (e) {
         editor.inline(this);
     });
-    var table = $('#example1').DataTable({
+     $('#example1').DataTable({
         dom: "Bfrtip",
         "order": [1, "desc"],
         "ajax": { // 获取数据
-            "url": "../auth/show_user_list",
+            "url": "../auth/show_permission_list",
             "dataType": "json" //返回来的数据形式
         },
         "processing": true,
@@ -123,14 +123,9 @@ $(function () {
             {'data': null, className: 'select-checkbox text-center', defaultContent: ""},
             {'data': "id",},
             {'data': "name",},
-            {'data': 'roles'},
-            {'data': "created_at"},
-            {'data': "updated_at"},
-            {'data': "state","render":function (val, type, row) {
-                return val==1?"已启用":'禁止启用';
-            }},
+            {'data': 'roles[,]'},
         ],
-        "columnDefs": [ //自定义列
+        //"columnDefs": [ //自定义列
             // {
             //   "targets": 3, //改写哪一列
             // "data": "password",
@@ -140,15 +135,15 @@ $(function () {
             // return html;
             //}
             //},
-            {
-                "targets": [-1, -7],
-                "orderable": false  //禁止排序
-            },
-            {
-                "targets": [-1, -7,],
-                "searchable": false //禁止搜索
-            }
-        ],
+           // {
+            //    "targets": [-1, -7],
+               // "orderable": false  //禁止排序
+          //  },
+           // {
+                //"targets": [-1, -7,],
+             //   "searchable": false //禁止搜索
+          //  }
+       // ],
         select: {
             style: 'os',
             selector: 'td:first-child',
@@ -161,10 +156,10 @@ $(function () {
                 formTitle:'增加新用户',
                 formButtons:'提交',
             },
-            {
+           {
                 text: '删除管理员',
                 extend: 'remove',
-                editor: editorDel,
+               editor: editorDel,
                 formTitle: '删除用户（彻底删除）',
                 formButtons: '提交',
             },
@@ -182,6 +177,6 @@ $(function () {
                 formTitle:'重置密码',
                 formButtons:'提交',
             },
-        ]
+       ]
     });
 })

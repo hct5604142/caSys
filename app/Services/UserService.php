@@ -31,6 +31,8 @@ class UserService
         return json_encode($b, JSON_UNESCAPED_UNICODE);
     }
 
+
+
     public function updateUserName($request){
         $rd = $request->input('data');
         $id = "";
