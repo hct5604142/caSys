@@ -10,7 +10,7 @@
                     <table id="example1" class="table table-bordered table-hover dataTable" style="width:100%">
                         <thead>
                         <tr>
-                            <th></th>
+                            <th style="width: 8%"></th>
                             <th>用户名</th>
                             <th>姓名</th>
                             <th>角色</th>

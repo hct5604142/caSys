@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\UserPassEditRequest;
-use App\Models\Ua_uxr;
+use App\Models\Role;
 use App\Services\AppService;
 use App\Services\UserService;
 use App\Repositories\AppRepository;
@@ -53,12 +51,17 @@ class PermissionManageController extends Controller
                         array_push($roles,$temp[$i]->name);
                     }
                     $user->roles=$roles;
-                    $user->DT_RowId='1';
+//                    $user->DT_RowId=$user->id;
             }else{
                 $user->roloes=null;
             }
 
         }
         return json_encode(array('data'=>$users->toArray()));
+    }
+
+    public function  getAjaxRoles(){
+        $roles=Role::select('id','name')->get();
+        return json_encode($roles->toArray());
     }
 }

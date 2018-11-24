@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.53)
-# Date: 2018-11-24 00:18:17
+# Date: 2018-11-24 15:14:23
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -87,7 +87,7 @@ CREATE TABLE `roles` (
 #
 
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'超级管理员',NULL,'2018-11-10 14:15:22','2018-11-10 14:15:22'),(2,'核算员',NULL,'2018-11-10 14:15:22','2018-11-10 14:15:22');
+INSERT INTO `roles` VALUES (1,'超级管理员',NULL,'2018-11-10 14:15:22','2018-11-10 14:15:22'),(2,'金额核算员',NULL,'2018-11-10 14:15:22','2018-11-10 14:15:22');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 
 #

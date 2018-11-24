@@ -56,6 +56,7 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     })->name('角色管理查看');
 
     Route::get('/auth/show_permission_list', 'Auth\PermissionManageController@showRolesList');
+    Route::get('/auth/get_ajax_roles', 'Auth\PermissionManageController@getAjaxRoles');
 
 
 });
