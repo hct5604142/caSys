@@ -36,21 +36,45 @@ $(function () {
         },
         ]
     });
+    //新建角色
+    editorNewRole = new $.fn.dataTable.Editor({
+        table: "#example1",
+        idSrc:  'id',
+        ajax: {
+            url: "../auth/add_role",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+        fields: [
+            {
+                label: '权限名称',
+                name: "name",
+            },
+        ]
+    });
     editorRole.on( 'preSubmit', function ( e, o, action ) {
         if ( action == 'edit' ) {
             var permission = this.field( 'permissions[,]' );
-
-            // Only validate user input values - different values indicate that
-            // the end user has not entered a value
-
                 if (permission.val().length==0 ) {
                     permission.error( '请至少选择一项' );
                 }
-                // if ( firstName.val().length >= 20 ) {
-                //     firstName.error( 'The first name length must be less that 20 characters' );
-                // }
 
-            // ... additional validation rules
+            // If any error was reported, cancel the submission so it can be corrected
+            if ( this.inError() ) {
+                return false;
+            }
+        }
+    } );
+    editorNewRole.on( 'preSubmit', function ( e, o, action ) {
+        if ( action == 'create' ) {
+            var permission = this.field( 'name' );
+            var a=permission.val();
+            if (a.length==0) {
+                permission.error( '请填写权限名称' );
+            }
 
             // If any error was reported, cancel the submission so it can be corrected
             if ( this.inError() ) {
@@ -94,7 +118,7 @@ $(function () {
         buttons: [
             {
                 text: '新增角色',
-                editor:editorRole,
+                editor:editorNewRole,
                 extend: 'create',
                 formTitle:'新建角色',
                 formButtons:'提交',

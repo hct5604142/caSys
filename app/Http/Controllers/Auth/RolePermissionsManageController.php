@@ -65,4 +65,16 @@ class RolePermissionsManageController extends Controller
         }
         return $this->showRolesList($id);
     }
+
+    public  function  addRole(Request $request){
+        $name="";
+        foreach ($request->input('data') as $x=>$y){
+            $id=$x;
+            $name=$y['name'];
+        }
+        $role=new Role();
+        $role->name=$name;
+        $role->save();
+        
+    }
 }

@@ -64,8 +64,7 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     Route::get('/auth/role_permissions_list', 'Auth\RolePermissionsManageController@showRolesList');
     Route::get('/auth/get_ajax_permissions', 'Auth\RolePermissionsManageController@getAjaxPermissions');
     Route::Post('/auth/edit_role_permission', 'Auth\RolePermissionsManageController@editRolePermission');
-
-
+    Route::Post('/auth/add_role', 'Auth\RolePermissionsManageController@addRole');
 
 
 });
