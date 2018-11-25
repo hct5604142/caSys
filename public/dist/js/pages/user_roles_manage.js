@@ -11,10 +11,96 @@ $(function () {
                 b['value']=n['id'];
              a[i]=b;
             });
-
         }
-
     });
+
+
+    editora = new $.fn.dataTable.Editor({
+        table: "#example1",
+        ajax: {
+            url: "../auth/add",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+        fields: [{
+            label: '账户',
+            name: "id",
+        }, {
+            label: '姓名',
+            name: "name"
+        }, {
+            label: '密码',
+            name: "password",
+            type:'password',
+        },{
+            label:'角色',
+            name:'role[,]'
+        },
+
+        ]
+    });
+
+    // 新用户Editor
+    editorNewUeser = new $.fn.dataTable.Editor({
+        table: "#example1",
+        ajax: {
+            url: "../auth/add",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+        fields: [{
+            label: '账户',
+            name: "id",
+        }, {
+            label: '姓名',
+            name: "name"
+        }, {
+            label: '密码',
+            name: "password",
+            type:'password',
+        },
+        ]
+    });
+
+    // 用户删除
+    editorRemove = new $.fn.dataTable.Editor({
+        table: "#example1",
+        idSrc:  'id',
+        ajax: {
+            url: "../auth/del",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+    });
+
+    editorName = new $.fn.dataTable.Editor({
+        table: "#example1",
+        idSrc:  'id',
+        ajax: {
+            url: "../auth/update_name",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+        fields: [
+            {
+            name: "name",
+        },
+        ]
+    });
+
+    //修改角色
     editorRole = new $.fn.dataTable.Editor({
         table: "#example1",
         idSrc:  'id',
@@ -33,7 +119,7 @@ $(function () {
             options:a,
 
         },
-        ]
+        ],
     });
     editorRole.on( 'preSubmit', function ( e, o, action ) {
         if ( action == 'edit' ) {
@@ -57,6 +143,57 @@ $(function () {
             }
         }
     } );
+
+    //修改状态
+    editorState = new $.fn.dataTable.Editor({
+        table: "#example1",
+        idSrc:  'id',
+        ajax: {
+            url: "../auth/edit_state",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+        fields: [ {
+            name: "state",
+            type:'radio',
+            options: [
+                { label: "启用", value: 1 },
+                { label: "关闭使用",  value: 0 }
+            ],
+        },
+        ]
+    });
+
+    editorPass = new $.fn.dataTable.Editor({
+        table: "#example1",
+        idSrc:  'id',
+        ajax: {
+            url: "../auth/edit_pass",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+        fields: [ {
+            label: '新密码',
+            name: "password",
+            type:'password',
+        },
+        ]
+    });
+
+    $('#example1').on( 'click', 'tbody td:nth-child(3)', function (e) {
+        editorName.inline( this );
+    } );
+    $('#example1').on( 'click', 'tbody td:nth-child(5)', function (e) {
+        editorState.inline( this );
+    } );
+
+
      $('#example1').DataTable({
         dom: "Bfrtip",
         "order": [1, "desc"],
@@ -71,6 +208,10 @@ $(function () {
             {'data': "id",},
             {'data': "name",},
             {'data': 'roles[,]'},
+            {'data': "state","render":function (val, type, row) {
+                    return val==1?'<small class="label bg-green">启用</small>':'<small class="label bg-red">关闭</small>';
+                }},
+            {'data':'created_at'}
         ],
 
          //自定义列
@@ -90,12 +231,31 @@ $(function () {
         },
         buttons: [
             {
+                text: '新用户',
+                extend: 'create',
+                editor: editorNewUeser,
+                formTitle:'增加新用户',
+                formButtons:'提交',
+            },{
                 text: '修改角色',
                 editor:editorRole,
                 extend: 'edit',
                 formTitle:'修改角色',
                 formButtons:'提交',
+            },{
+                text: '删除用户',
+                editor:editorRemove,
+                extend: 'remove',
+                formTitle:'删除用户',
+                formButtons:'提交',
+            },{
+                text: '修改密码',
+                editor:editorPass,
+                extend: 'edit',
+                formTitle:'修改密码',
+                formButtons:'提交',
             },
-       ]
+
+        ]
     });
 })

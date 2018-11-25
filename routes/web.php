@@ -41,15 +41,15 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     Route::get('/logout', 'LogoutController');
     Route::get('/auth/add', 'Auth\UserAddController@show');
 
-    Route::post('/auth/add', 'Auth\UserAddController@save');
+    Route::post('/auth/add', 'Auth\RoleUserManageController@userAdd');
     Route::get('/auth/user_manage', 'Auth\UserManageController@show')->name('用户查看');
 
     Route::get('/auth/show_user_list', 'Auth\UserManageController@showUserList')->name('用户查看');
-    Route::post('/auth/update_name', 'Auth\UserManageController@updateName');
+    Route::post('/auth/update_name', 'Auth\RoleUserManageController@updateName');
 
-    Route::post('/auth/del', 'Auth\UserManageController@delUser');
-    Route::post('/auth/edit_pass', 'Auth\UserManageController@editUserPass');
-    Route::post('/auth/edit_state', 'Auth\UserManageController@editUserState');
+    Route::post('/auth/del', 'Auth\RoleUserManageController@userDel');
+    Route::post('/auth/edit_pass', 'Auth\RoleUserManageController@editUserPass');
+    Route::post('/auth/edit_state', 'Auth\RoleUserManageController@editUserState');
 
     Route::get('/auth/user_roles_manage', function (){
         return view('layers.auth.user_roles_manage');
@@ -65,6 +65,17 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     Route::get('/auth/get_ajax_permissions', 'Auth\RolePermissionsManageController@getAjaxPermissions');
     Route::Post('/auth/edit_role_permission', 'Auth\RolePermissionsManageController@editRolePermission');
     Route::Post('/auth/add_role', 'Auth\RolePermissionsManageController@addRole');
+    Route::Post('/auth/remove_role', 'Auth\RolePermissionsManageController@removeRole');
+    Route::Post('/auth/edit_role_name', 'Auth\RolePermissionsManageController@editRoleName');
+
+
+
+    Route::get('/auth/permissions_manage', function (){
+        return view('layers.auth.permission_manage');
+    });
+    Route::get('/auth/permissions_list', 'Auth\PermissionsManageController@showPermissionsList');
+
+
 
 
 });

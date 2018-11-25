@@ -69,12 +69,43 @@ class RolePermissionsManageController extends Controller
     public  function  addRole(Request $request){
         $name="";
         foreach ($request->input('data') as $x=>$y){
-            $id=$x;
             $name=$y['name'];
+        }
+        if(!strlen($name)){
+            return array('error'=>['角色名称不能为空']);
         }
         $role=new Role();
         $role->name=$name;
         $role->save();
-        
+        return array('data'=>[$role->toArray()]);
+    }
+
+    public function removeRole(Request $request){
+        $id="";
+        foreach ($request->input('data') as $x=>$y){
+            $id=$x;
+        }
+        Pa_pxr::where('rid',$id)->delete();
+        if(Role::find($id)->delete()){
+            return array('data'=>[]);
+        }
+    }
+
+    public function editRoleName(Request $request){
+        $id="";
+        $content="";
+        foreach ($request->input('data') as $x=>$y){
+            $id=$x;
+            $content=$y['name'];
+        }
+        if(!strlen($content)){
+            return array('error'=>['角色名称不能为空']);
+        }
+        $role=Role::find($id);
+        $role->name=$content;
+        if($role->update()){
+            return array('data'=>[$role->toArray()]);
+        }
+
     }
 }

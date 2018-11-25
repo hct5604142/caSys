@@ -36,6 +36,44 @@ $(function () {
         },
         ]
     });
+
+    editorName = new $.fn.dataTable.Editor({
+        table: "#example1",
+        idSrc:  'id',
+        ajax: {
+            url: "../auth/edit_role_name",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+        fields: [
+            {
+                label: '角色名称',
+                name: "name",
+            },
+        ]
+    });
+    //删除角色
+    editorRoleDelete = new $.fn.dataTable.Editor({
+        table: "#example1",
+        idSrc:  'id',
+        ajax: {
+            url: "../auth/remove_role",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+        fields: [
+            {
+                label: 'id',
+                name: "id",
+            },
+        ]
+    });
     //新建角色
     editorNewRole = new $.fn.dataTable.Editor({
         table: "#example1",
@@ -68,12 +106,13 @@ $(function () {
             }
         }
     } );
+
     editorNewRole.on( 'preSubmit', function ( e, o, action ) {
         if ( action == 'create' ) {
             var permission = this.field( 'name' );
             var a=permission.val();
             if (a.length==0) {
-                permission.error( '请填写权限名称' );
+                permission.error( '请填写角色名称' );
             }
 
             // If any error was reported, cancel the submission so it can be corrected
@@ -82,6 +121,10 @@ $(function () {
             }
         }
     } );
+
+    $('#example1').on('click', 'tbody td:nth-child(3)', function (e) {
+        editorName.inline(this);
+    });
      $('#example1').DataTable({
         dom: "Bfrtip",
         "order": [1, "desc"],
@@ -128,6 +171,13 @@ $(function () {
                 editor:editorRole,
                 extend: 'edit',
                 formTitle:'修改角色',
+                formButtons:'提交',
+            },
+            {
+                text: '删除角色',
+                editor:editorRoleDelete,
+                extend: 'remove',
+                formTitle:'删除角色',
                 formButtons:'提交',
             },
        ]

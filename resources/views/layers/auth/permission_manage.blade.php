@@ -11,11 +11,11 @@
                         <thead>
                         <tr>
                             <th style="width: 8%"></th>
-                            <th>用户名</th>
-                            <th>姓名</th>
-                            <th>角色</th>
-                            <th>当前可用状态</th>
-                            <th>创建时间</th>
+                            <th>权限ID</th>
+                            <th>权限名称</th>
+                            <th>权限Method</th>
+                            <th>权限创建时间</th>
+                            <th>权限更新时间</th>
                         </tr>
                         </thead>
                     </table>
@@ -31,5 +31,5 @@
     <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <script src="{{asset('bower_components/datatables-editor/dataTables.editor.js')}}"></script>
     <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-    <script src="{{asset('dist/js/pages/user_roles_manage.js')}}"></script>
+    <script src="{{asset('dist/js/pages/permissions_manage.js')}}"></script>
 @endsection
