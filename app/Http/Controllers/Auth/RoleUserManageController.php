@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Role;
+use App\Models\Ua_uxr;
 use App\Services\AppService;
 use App\Services\UserService;
 use App\Repositories\AppRepository;
 use App\Repositories\UserRepository;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PermissionManageController extends Controller
+class RoleUserManageController extends Controller
 {
     //
     private $userService;
@@ -31,8 +33,12 @@ class PermissionManageController extends Controller
         return view('layers.auth.user_manage', compact('title', 'crumbs', 'users'));
     }
 
-    public function showRolesList(){
-        $users=User::select('id','name')->get();
+    public function showRolesList($id=null){
+        if($id!=null){
+            $users=User::where('id',$id)->select('id','name')->get();
+        }else{
+            $users=User::select('id','name')->get();
+        }
         foreach ($users as $user){
             if(
             DB::table('ua_uxrs')
@@ -63,5 +69,24 @@ class PermissionManageController extends Controller
     public function  getAjaxRoles(){
         $roles=Role::select('id','name')->get();
         return json_encode($roles->toArray());
+    }
+
+    public function editUserRole(Request $request){
+        $id="";
+        $content="";
+        foreach($request->input('data') as $x=>$y){
+            $id=$x;
+            $content=$y;
+        }
+        Ua_uxr::where('uid',$id)->delete();
+        for($i=0;$i<count($content['roles']);$i++){
+            $uxr=new Ua_uxr();
+            $uxr->uid=$id;
+            $uxr->rid=$content['roles'][$i];
+            $uxr->save();
+        }
+
+        return $this->showRolesList($id);
+       // dd($request->input('data'));
     }
 }

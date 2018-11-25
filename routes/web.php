@@ -51,12 +51,21 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     Route::post('/auth/edit_pass', 'Auth\UserManageController@editUserPass');
     Route::post('/auth/edit_state', 'Auth\UserManageController@editUserState');
 
-    Route::get('/auth/roles_manage', function (){
-        return view('layers.auth.roles_manage');
-    })->name('角色管理查看');
+    Route::get('/auth/user_roles_manage', function (){
+        return view('layers.auth.user_roles_manage');
+    })->name('用户角色管理查看');
+    Route::get('/auth/show_role_list', 'Auth\RoleUserManageController@showRolesList');
+    Route::get('/auth/get_ajax_roles', 'Auth\RoleUserManageController@getAjaxRoles');
+    Route::Post('/auth/edit_user_role', 'Auth\RoleUserManageController@editUserRole');
 
-    Route::get('/auth/show_permission_list', 'Auth\PermissionManageController@showRolesList');
-    Route::get('/auth/get_ajax_roles', 'Auth\PermissionManageController@getAjaxRoles');
+    Route::get('/auth/role_permissions_manage', function (){
+        return view('layers.auth.role_permissions_manage');
+    });
+    Route::get('/auth/role_permissions_list', 'Auth\RolePermissionsManageController@showRolesList');
+    Route::get('/auth/get_ajax_permissions', 'Auth\RolePermissionsManageController@getAjaxPermissions');
+    Route::Post('/auth/edit_role_permission', 'Auth\RolePermissionsManageController@editRolePermission');
+
+
 
 
 });

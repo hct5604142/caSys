@@ -155,7 +155,7 @@ $(function () {
         },
         buttons: [
             {
-                text: '新建...',
+                text: '新用户',
                 extend: 'create',
                 editor: editorNewUeser,
                 formTitle:'增加新用户',

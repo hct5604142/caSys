@@ -29,5 +29,5 @@
     <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <script src="{{asset('bower_components/datatables-editor/dataTables.editor.js')}}"></script>
     <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-    <script src="{{asset('dist/js/pages/roles_manage.js')}}"></script>
+    <script src="{{asset('dist/js/pages/user_roles_manage.js')}}"></script>
 @endsection
