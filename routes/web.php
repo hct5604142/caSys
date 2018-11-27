@@ -75,6 +75,13 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     });
     Route::get('/auth/permissions_list', 'Auth\PermissionsManageController@showPermissionsList');
 
+    Route::get('/formula/oil_price_chgs', function (){
+        return view('layers.formula.oil_price_chgs');
+    });
+    Route::get('/formula/show_chgs_list', 'Formula\OilPriceChgsController@showChgsList');
+    Route::Post('/formula/update', 'Formula\OilPriceChgsController@lspUpdate');
+    Route::Get('/formula/get_args', 'Formula\OilPriceChgsController@getArgs');
+
 
 
 

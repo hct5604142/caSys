@@ -136,7 +136,7 @@ $(function () {
         "processing": true,
         "columns": [ //定义列数据来源
             {'data': null, className: 'select-checkbox text-center', defaultContent: ""},
-            {'data': "id",},
+            {'data': "id",'visible':false},
             {'data': "name",},
             {'data': 'permissions[,]'},
             {'data':'created_at'},

@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.53)
-# Date: 2018-11-24 15:14:23
+# Date: 2018-11-28 00:44:22
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -26,6 +26,28 @@ INSERT INTO `crumbs` VALUES (1,'首页','/dashboard',NULL),(2,'账户管理','/a
 /*!40000 ALTER TABLE `crumbs` ENABLE KEYS */;
 
 #
+# Structure for table "oil_price_chgs"
+#
+
+DROP TABLE IF EXISTS `oil_price_chgs`;
+CREATE TABLE `oil_price_chgs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lsp` decimal(5,2) NOT NULL DEFAULT '0.00' COMMENT '上季度油价',
+  `ip` decimal(5,2) NOT NULL DEFAULT '0.00' COMMENT '初始油价',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+#
+# Data for table "oil_price_chgs"
+#
+
+/*!40000 ALTER TABLE `oil_price_chgs` DISABLE KEYS */;
+INSERT INTO `oil_price_chgs` VALUES (2,6.24,4.38,'2018-11-27 23:29:04','2018-11-28 00:43:18');
+/*!40000 ALTER TABLE `oil_price_chgs` ENABLE KEYS */;
+
+#
 # Structure for table "pa_pxrs"
 #
 
@@ -42,7 +64,7 @@ CREATE TABLE `pa_pxrs` (
 #
 
 /*!40000 ALTER TABLE `pa_pxrs` DISABLE KEYS */;
-INSERT INTO `pa_pxrs` VALUES (1,1,'2018-11-10 14:26:01','2018-11-10 14:26:01'),(1,2,'2018-11-10 14:26:01','2018-11-10 14:26:01'),(1,3,'2018-11-10 14:26:01','2018-11-10 14:26:01');
+INSERT INTO `pa_pxrs` VALUES (1,1,'2018-11-10 14:26:01','2018-11-10 14:26:01'),(1,2,'2018-11-10 14:26:01','2018-11-10 14:26:01'),(1,3,'2018-11-10 14:26:01','2018-11-10 14:26:01'),(2,1,'2018-11-27 18:31:33','2018-11-27 18:31:33');
 /*!40000 ALTER TABLE `pa_pxrs` ENABLE KEYS */;
 
 #
@@ -80,7 +102,7 @@ CREATE TABLE `roles` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "roles"
@@ -107,7 +129,7 @@ CREATE TABLE `ua_uxrs` (
 #
 
 /*!40000 ALTER TABLE `ua_uxrs` DISABLE KEYS */;
-INSERT INTO `ua_uxrs` VALUES ('302841','1','2018-11-10 14:18:28','2018-11-10 14:18:28'),('302842','1','2018-11-10 14:18:28','2018-11-10 14:18:28'),('302841','2','0000-00-00 00:00:00','0000-00-00 00:00:00');
+INSERT INTO `ua_uxrs` VALUES ('302841','1','2018-11-10 14:18:28','2018-11-10 14:18:28'),('302842','1','2018-11-10 14:18:28','2018-11-10 14:18:28'),('302841','2','0000-00-00 00:00:00','0000-00-00 00:00:00'),('302846','1','2018-11-25 12:46:34','2018-11-25 12:46:34');
 /*!40000 ALTER TABLE `ua_uxrs` ENABLE KEYS */;
 
 #
@@ -130,5 +152,5 @@ CREATE TABLE `users` (
 #
 
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('302841','胡长6','$2y$10$LUAeSBFm7w6mviq43c.4HeN7ZhlBdw9macIg37ipp/Z8.KGUwYcue','2018-11-10 21:24:01','2018-11-20 23:37:30',1),('302842','胡长3','$2y$10$JeiUElr9OEKWkv61nmQe7ecUfoQKcqxiuVnBjv.jORfS8FjY1EkNa','2018-11-19 13:41:02','2018-11-22 00:19:48',0),('302846','hct','$2y$10$Nj/qqm52qzrd9UdjWX6YtusBDYm35ltIh2byip64P/f1/nrvzGqNC','2018-11-22 00:17:22','2018-11-22 00:17:37',0);
+INSERT INTO `users` VALUES ('302841','胡长6','$2y$10$LUAeSBFm7w6mviq43c.4HeN7ZhlBdw9macIg37ipp/Z8.KGUwYcue','2018-11-10 21:24:01','2018-11-20 23:37:30',1),('302842','胡长3','$2y$10$JeiUElr9OEKWkv61nmQe7ecUfoQKcqxiuVnBjv.jORfS8FjY1EkNa','2018-11-19 13:41:02','2018-11-26 20:18:28',1),('302846','hct','$2y$10$Nj/qqm52qzrd9UdjWX6YtusBDYm35ltIh2byip64P/f1/nrvzGqNC','2018-11-22 00:17:22','2018-11-26 20:18:22',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;

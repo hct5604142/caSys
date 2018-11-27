@@ -154,6 +154,18 @@
             </li>
             <li class="treeview">
                 <a href="#">
+                    <i class="fa fa-folder"></i> <span>公式</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{asset('/formula/oil_price_chgs')}}"><i class="fa fa-circle-o"></i> 油价涨跌幅公式</a></li>
+                    <li><a href="{{asset('/auth/role_permissions_manage')}}"><i class="fa fa-circle-o"></i>当前季度执行价格公式</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
                     <i class="fa fa-share"></i> <span>Multilevel</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
