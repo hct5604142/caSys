@@ -161,7 +161,8 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{asset('/formula/oil_price_chgs')}}"><i class="fa fa-circle-o"></i> 油价涨跌幅公式</a></li>
-                    <li><a href="{{asset('/auth/role_permissions_manage')}}"><i class="fa fa-circle-o"></i>当前季度执行价格公式</a></li>
+                    <li><a href="{{asset('/formula/base_price')}}"><i class="fa fa-circle-o"></i>当前季度执行价格公式</a></li>
+                    <li><a href="{{asset('/formula/base_price')}}"><i class="fa fa-circle-o"></i>当前执行文件阅览</a></li>
                 </ul>
             </li>
             <li class="treeview">

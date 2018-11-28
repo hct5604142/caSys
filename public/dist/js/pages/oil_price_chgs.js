@@ -80,8 +80,6 @@ $(function () {
                      $("#ip").text(ip);
                      $("#ip2").text(ip);
                      $("#result").text(((lsp-ip)/ip).toFixed(2));
-
-
                  }
              });
          },

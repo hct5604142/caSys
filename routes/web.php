@@ -82,6 +82,11 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     Route::Post('/formula/update', 'Formula\OilPriceChgsController@lspUpdate');
     Route::Get('/formula/get_args', 'Formula\OilPriceChgsController@getArgs');
 
+    Route::get('/formula/base_price', function (){
+        return view('layers.formula.base_price');
+    });
+    Route::get('/formula/show_base_price_list', 'Formula\BasePriceController@showBasePriceList');
+
 
 
 
