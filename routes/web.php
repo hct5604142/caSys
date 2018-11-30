@@ -86,7 +86,8 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
         return view('layers.formula.base_price');
     });
     Route::get('/formula/show_base_price_list', 'Formula\BasePriceController@showBasePriceList');
-
+    Route::Post('/formula/update_base_price', 'Formula\BasePriceController@updateBasePrice');
+    Route::get('/formula/get_ajax_units', 'Formula\BasePriceController@getAjaxUnits');
 
 
 

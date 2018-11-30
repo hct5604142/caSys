@@ -117,7 +117,6 @@ $(function () {
             name: "roles[,]",
             type:'checkbox',
             options:a,
-
         },
         ],
     });
