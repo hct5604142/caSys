@@ -1,29 +1,35 @@
 ﻿# Host: localhost  (Version: 5.5.53)
-# Date: 2018-11-28 00:44:22
+# Date: 2018-11-30 21:12:42
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
 
 #
-# Structure for table "crumbs"
+# Structure for table "base_prices"
 #
 
-DROP TABLE IF EXISTS `crumbs`;
-CREATE TABLE `crumbs` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL DEFAULT '',
-  `uri` varchar(255) NOT NULL DEFAULT '',
-  `pid` int(11) DEFAULT '0',
-  PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `base_prices`;
+CREATE TABLE `base_prices` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `class_main` varchar(255) NOT NULL DEFAULT '' COMMENT '运输项目主类别',
+  `class_sub` varchar(255) DEFAULT NULL COMMENT '运输项目子类别',
+  `base_price` decimal(5,2) NOT NULL DEFAULT '0.00' COMMENT '基准运价',
+  `unit_id` int(11) NOT NULL,
+  `distance` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否和距离相关',
+  `linkage` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否执行油价联动',
+  `remark` varchar(255) DEFAULT NULL COMMENT '备注',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 #
-# Data for table "crumbs"
+# Data for table "base_prices"
 #
 
-/*!40000 ALTER TABLE `crumbs` DISABLE KEYS */;
-INSERT INTO `crumbs` VALUES (1,'首页','/dashboard',NULL),(2,'账户管理','/auth/user_manage',1),(3,'角色管理','/auth/roles',1),(4,'权限管理','/auth/permissions',1),(5,'添加用户','/auth/add_user',1);
-/*!40000 ALTER TABLE `crumbs` ENABLE KEYS */;
+/*!40000 ALTER TABLE `base_prices` DISABLE KEYS */;
+INSERT INTO `base_prices` VALUES (1,'15吨以上','300公里以内',0.67,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(2,'15吨以上','301-1000公里',0.62,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(3,'15吨以上','1001-2500公里',0.57,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(4,'15吨以上','2501公里以上',0.54,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(5,'15吨以下','300公里以内',0.73,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(6,'15吨以下','301-2500公里',0.72,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(7,'15吨以下','2501公里以上',0.68,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(8,'成品烟移库',NULL,20.05,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(9,'烟叶、膨丝、材料移库',NULL,20.05,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(10,'烟梗移库',NULL,26.89,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(11,'南通托盘',NULL,0.62,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(12,'纸箱回收',NULL,0.25,1,1,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(13,'托盘回收',NULL,0.25,1,1,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(14,'南通咀棒',NULL,3.62,3,0,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04');
+/*!40000 ALTER TABLE `base_prices` ENABLE KEYS */;
 
 #
 # Structure for table "oil_price_chgs"
@@ -37,7 +43,7 @@ CREATE TABLE `oil_price_chgs` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "oil_price_chgs"
@@ -89,6 +95,27 @@ CREATE TABLE `permissions` (
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
 INSERT INTO `permissions` VALUES (1,'仪表盘查看',NULL,'2018-11-10 14:23:51','2018-11-10 14:23:51','GET'),(2,'用户查看',NULL,'2018-11-10 14:23:51','2018-11-10 14:23:51','GET'),(3,'角色管理查看',NULL,'2018-11-10 14:23:51','2018-11-10 14:23:51','GET');
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
+
+#
+# Structure for table "price_units"
+#
+
+DROP TABLE IF EXISTS `price_units`;
+CREATE TABLE `price_units` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `unit_name` varchar(255) NOT NULL DEFAULT '',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+#
+# Data for table "price_units"
+#
+
+/*!40000 ALTER TABLE `price_units` DISABLE KEYS */;
+INSERT INTO `price_units` VALUES (1,'元/吨.公里','2018-11-27 23:29:04','2018-11-27 23:29:04'),(2,'元/吨','2018-11-27 23:29:04','2018-11-27 23:29:04'),(3,'元/万支','2018-11-27 23:29:04','2018-11-27 23:29:04');
+/*!40000 ALTER TABLE `price_units` ENABLE KEYS */;
 
 #
 # Structure for table "roles"
