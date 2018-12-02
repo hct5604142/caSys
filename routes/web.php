@@ -88,7 +88,16 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     Route::get('/formula/show_base_price_list', 'Formula\BasePriceController@showBasePriceList');
     Route::Post('/formula/update_base_price', 'Formula\BasePriceController@updateBasePrice');
     Route::get('/formula/get_ajax_units', 'Formula\BasePriceController@getAjaxUnits');
+    Route::Post('/formula/add_base_price', 'Formula\BasePriceController@addBasePrice');
+    Route::Post('/formula/del_base_price', 'Formula\BasePriceController@delBasePrice');
 
 
+
+
+    Route::get('/formula/unit_manage', function (){
+        return view('layers.formula.unit_manage');
+    });
+    Route::get('/formula/show_units_list', 'Formula\UnitManageController@showUnitList');
+    Route::Post('/formula/update_unit', 'Formula\UnitManageController@updateUnit');
 
 });

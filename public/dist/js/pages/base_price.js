@@ -64,6 +64,67 @@ $(function () {
         ],
 
     });
+    editorAdd = new $.fn.dataTable.Editor({
+        table: "#example1",
+        idSrc:  'id',
+        ajax: {
+            url: "../formula/add_base_price",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+        fields: [{
+            label: '运输项目主类别',
+            name: "class_main",
+        }, {
+            label: '运输项目子类别',
+            name: "class_sub",
+        },{
+            label: '基准运价',
+            name: "base_price"
+        },{
+            label: '单位',
+            name: "unit_name",
+            type:'select',
+            options:units_list,
+        },{
+            label: '距离相关',
+            name: "distance",
+            type:'radio',
+            options: [
+                { label: "相关", value: 1 },
+                { label: "不相关",  value: 0 }
+            ],
+        },{
+            label: '油价联动',
+            name: "linkage",
+            type:'radio',
+            options: [
+                { label: "联动", value: 1 },
+                { label: "不联动",  value: 0 }
+            ],
+        },{
+            label: '备注',
+            name: "remark"
+        },
+        ],
+
+    });
+
+    editorDel = new $.fn.dataTable.Editor({
+        table: "#example1",
+        idSrc:  'id',
+        ajax: {
+            url: "../formula/del_base_price",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+    });
 
     $('#example1').on( 'click', 'tbody td:nth-child(2)', function (e) {
         editorI.inline( this );
@@ -162,14 +223,14 @@ $(function () {
          buttons: [
              {
                  text: '新增基准运价规则',
-                 editor:editorI,
+                 editor:editorAdd,
                  extend: 'create',
                  formTitle:'新增基准运价规则',
                  formButtons:'提交',
              },
              {
                  text: '删除基准运价规则',
-                 editor:editorI,
+                 editor:editorDel,
                  extend: 'remove',
                  formTitle:'删除基准运价规则',
                  formButtons:'提交',

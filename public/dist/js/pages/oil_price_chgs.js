@@ -46,6 +46,7 @@ $(function () {
             "dataType": "json" //返回来的数据形式
         },
          idSrc:  'id',
+         info:false,
         "processing": true,
         "columns": [ //定义列数据来源
             {'data': "id",'visible':false},
