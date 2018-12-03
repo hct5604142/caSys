@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.53)
-# Date: 2018-12-02 20:43:16
+# Date: 2018-12-03 21:23:58
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -21,36 +21,15 @@ CREATE TABLE `base_prices` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "base_prices"
 #
 
 /*!40000 ALTER TABLE `base_prices` DISABLE KEYS */;
-INSERT INTO `base_prices` VALUES (1,'15吨以上','300公里以内',0.67,1,1,1,NULL,'2018-11-27 23:29:04','2018-12-01 22:26:35'),(2,'15吨以上','301-1000公里',0.62,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(3,'15吨以上','1001-2500公里',0.57,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-30 23:36:18'),(4,'15吨以上','2501公里以上',0.54,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(5,'15吨以下','300公里以内',0.73,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(6,'15吨以下','301-2500公里',0.72,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(7,'15吨以下','2501公里以上',0.68,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(8,'成品烟移库',NULL,20.05,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(9,'烟叶、膨丝、材料移库',NULL,20.05,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(10,'烟梗移库',NULL,26.89,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(11,'南通托盘',NULL,0.62,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(12,'纸箱回收',NULL,0.25,1,1,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(13,'托盘回收',NULL,0.25,1,1,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(14,'南通咀棒',NULL,3.62,3,0,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04');
+INSERT INTO `base_prices` VALUES (1,'15吨以上','300公里以内',0.67,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(2,'15吨以上','301-1000公里',0.62,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(3,'15吨以上','1001-2500公里',0.57,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(4,'15吨以上','2501公里以上',0.54,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(5,'15吨以下','300公里以内',0.73,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(6,'15吨以下','301-2500公里',0.72,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(7,'15吨以下','2501公里以上',0.68,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(8,'成品烟移库',NULL,20.05,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(9,'烟叶、膨丝、材料移库',NULL,20.05,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(10,'烟梗移库',NULL,26.89,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(11,'南通托盘',NULL,0.62,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(12,'纸箱回收',NULL,0.25,1,1,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(13,'托盘回收',NULL,0.25,1,1,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(14,'南通咀棒',NULL,3.62,3,0,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04');
 /*!40000 ALTER TABLE `base_prices` ENABLE KEYS */;
-
-#
-# Structure for table "crumbs"
-#
-
-DROP TABLE IF EXISTS `crumbs`;
-CREATE TABLE `crumbs` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL DEFAULT '',
-  `uri` varchar(255) NOT NULL DEFAULT '',
-  `pid` int(11) DEFAULT '0',
-  PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
-#
-# Data for table "crumbs"
-#
-
-/*!40000 ALTER TABLE `crumbs` DISABLE KEYS */;
-INSERT INTO `crumbs` VALUES (1,'首页','/dashboard',NULL),(2,'账户管理','/auth/user_manage',1),(3,'角色管理','/auth/roles',1),(4,'权限管理','/auth/permissions',1),(5,'添加用户','/auth/add_user',1);
-/*!40000 ALTER TABLE `crumbs` ENABLE KEYS */;
 
 #
 # Structure for table "oil_price_chgs"
@@ -128,14 +107,14 @@ CREATE TABLE `price_units` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "price_units"
 #
 
 /*!40000 ALTER TABLE `price_units` DISABLE KEYS */;
-INSERT INTO `price_units` VALUES (1,'元/吨.公里','2018-11-27 23:29:04','2018-12-01 22:18:13'),(2,'元/吨','2018-11-27 23:29:04','2018-11-27 23:29:04'),(3,'元/万支','2018-11-27 23:29:04','2018-11-27 23:29:04');
+INSERT INTO `price_units` VALUES (1,'元/吨.公里','2018-11-27 23:29:04','2018-12-03 19:37:11'),(2,'元/吨','2018-11-27 23:29:04','2018-11-27 23:29:04'),(3,'元/万支','2018-11-27 23:29:04','2018-11-27 23:29:04');
 /*!40000 ALTER TABLE `price_units` ENABLE KEYS */;
 
 #
@@ -202,3 +181,36 @@ CREATE TABLE `users` (
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES ('302841','胡长6','$2y$10$LUAeSBFm7w6mviq43c.4HeN7ZhlBdw9macIg37ipp/Z8.KGUwYcue','2018-11-10 21:24:01','2018-11-20 23:37:30',1),('302842','胡长3','$2y$10$JeiUElr9OEKWkv61nmQe7ecUfoQKcqxiuVnBjv.jORfS8FjY1EkNa','2018-11-19 13:41:02','2018-11-26 20:18:28',1),('302846','hct','$2y$10$Nj/qqm52qzrd9UdjWX6YtusBDYm35ltIh2byip64P/f1/nrvzGqNC','2018-11-22 00:17:22','2018-11-26 20:18:22',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
+#
+# Structure for table "waybill_eproduct"
+#
+
+DROP TABLE IF EXISTS `waybill_eproduct`;
+CREATE TABLE `waybill_eproduct` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_number_eproduct` varchar(255) NOT NULL DEFAULT '',
+  `car_no` varchar(255) NOT NULL DEFAULT '',
+  `car_type` varchar(255) NOT NULL DEFAULT '',
+  `exec_date` date NOT NULL DEFAULT '0000-00-00',
+  `start_end` varchar(255) NOT NULL DEFAULT '',
+  `mileage` int(11) NOT NULL DEFAULT '0',
+  `boxes_no` decimal(10,1) NOT NULL DEFAULT '0.0',
+  `tonnage` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `unit_price` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `freight` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `remark` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `check_number` tinyint(1) NOT NULL DEFAULT '0',
+  `check_price` tinyint(1) NOT NULL DEFAULT '0',
+  `leader_approval` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+#
+# Data for table "waybill_eproduct"
+#
+
+/*!40000 ALTER TABLE `waybill_eproduct` DISABLE KEYS */;
+/*!40000 ALTER TABLE `waybill_eproduct` ENABLE KEYS */;

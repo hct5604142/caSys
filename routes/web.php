@@ -100,4 +100,7 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     Route::get('/formula/show_units_list', 'Formula\UnitManageController@showUnitList');
     Route::Post('/formula/update_unit', 'Formula\UnitManageController@updateUnit');
 
+    Route::get('/order/eproduct', function (){
+        return view('layers.order.eproduct');
+    });
 });

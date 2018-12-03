@@ -154,6 +154,20 @@
             </li>
             <li class="treeview">
                 <a href="#">
+                    <i class="fa fa-folder"></i> <span>运单管理</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>运单填写</a></li>
+                    <li><a href="{{asset('/formula/base_price')}}"><i class="fa fa-circle-o"></i>当前季度执行价格公式</a></li>
+                    <li><a href="{{asset('/formula/unit_manage')}}"><i class="fa fa-circle-o"></i>单位管理</a></li>
+                    <li><a href="{{asset('/formula/base_price')}}"><i class="fa fa-circle-o"></i>当前执行文件阅览</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
                     <i class="fa fa-folder"></i> <span>公式</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
