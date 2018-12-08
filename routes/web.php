@@ -103,4 +103,7 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     Route::get('/order/eproduct', function (){
         return view('layers.order.eproduct');
     });
+
+    Route::get('/formula/show_waybill_order_list', 'Order\EProductController@showEProductOrder');
+
 });

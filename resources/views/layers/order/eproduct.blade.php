@@ -33,12 +33,16 @@
                                     {{--<th style="width: 8%"></th>--}}
                                     <th></th>
                                     <th>id</th>
-                                    <th width="10%">运输项目主类别</th>
-                                    <th>运输项目子类别</th>
-                                    <th>基准运价</th>
-                                    <th>单位</th>
-                                    <th>距离相关</th>
-                                    <th>油价联动</th>
+                                    <th>订单编号</th>
+                                    <th>承运车号</th>
+                                    <th>车型</th>
+                                    <th>执行日期</th>
+                                    <th>起止</th>
+                                    <th>里程</th>
+                                    <th>数量</th>
+                                    <th>吨位</th>
+                                    <th>单价</th>
+                                    <th>运费</th>
                                     <th>备注</th>
                                     <th width="10%">更新时间</th>
                                 </tr>

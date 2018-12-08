@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.53)
-# Date: 2018-12-03 21:23:58
+# Date: 2018-12-08 19:42:10
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -30,6 +30,27 @@ CREATE TABLE `base_prices` (
 /*!40000 ALTER TABLE `base_prices` DISABLE KEYS */;
 INSERT INTO `base_prices` VALUES (1,'15吨以上','300公里以内',0.67,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(2,'15吨以上','301-1000公里',0.62,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(3,'15吨以上','1001-2500公里',0.57,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(4,'15吨以上','2501公里以上',0.54,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(5,'15吨以下','300公里以内',0.73,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(6,'15吨以下','301-2500公里',0.72,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(7,'15吨以下','2501公里以上',0.68,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(8,'成品烟移库',NULL,20.05,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(9,'烟叶、膨丝、材料移库',NULL,20.05,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(10,'烟梗移库',NULL,26.89,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(11,'南通托盘',NULL,0.62,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(12,'纸箱回收',NULL,0.25,1,1,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(13,'托盘回收',NULL,0.25,1,1,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(14,'南通咀棒',NULL,3.62,3,0,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04');
 /*!40000 ALTER TABLE `base_prices` ENABLE KEYS */;
+
+#
+# Structure for table "crumbs"
+#
+
+DROP TABLE IF EXISTS `crumbs`;
+CREATE TABLE `crumbs` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `uri` varchar(255) NOT NULL DEFAULT '',
+  `pid` int(11) DEFAULT '0',
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+#
+# Data for table "crumbs"
+#
+
+/*!40000 ALTER TABLE `crumbs` DISABLE KEYS */;
+INSERT INTO `crumbs` VALUES (1,'首页','/dashboard',NULL),(2,'账户管理','/auth/user_manage',1),(3,'角色管理','/auth/roles',1),(4,'权限管理','/auth/permissions',1),(5,'添加用户','/auth/add_user',1);
+/*!40000 ALTER TABLE `crumbs` ENABLE KEYS */;
 
 #
 # Structure for table "oil_price_chgs"
@@ -183,13 +204,13 @@ INSERT INTO `users` VALUES ('302841','胡长6','$2y$10$LUAeSBFm7w6mviq43c.4HeN7Z
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 #
-# Structure for table "waybill_eproduct"
+# Structure for table "waybill_eproducts"
 #
 
-DROP TABLE IF EXISTS `waybill_eproduct`;
-CREATE TABLE `waybill_eproduct` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_number_eproduct` varchar(255) NOT NULL DEFAULT '',
+DROP TABLE IF EXISTS `waybill_eproducts`;
+CREATE TABLE `waybill_eproducts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_number` varchar(255) NOT NULL DEFAULT '',
   `car_no` varchar(255) NOT NULL DEFAULT '',
   `car_type` varchar(255) NOT NULL DEFAULT '',
   `exec_date` date NOT NULL DEFAULT '0000-00-00',
@@ -202,15 +223,16 @@ CREATE TABLE `waybill_eproduct` (
   `remark` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `check_number` tinyint(1) NOT NULL DEFAULT '0',
-  `check_price` tinyint(1) NOT NULL DEFAULT '0',
-  `leader_approval` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `check_number` tinyint(1) NOT NULL DEFAULT '0' COMMENT '数量核算',
+  `check_price` tinyint(1) NOT NULL DEFAULT '0' COMMENT '价格核算',
+  `leader_approval` tinyint(1) NOT NULL DEFAULT '0' COMMENT '领导审批',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 #
-# Data for table "waybill_eproduct"
+# Data for table "waybill_eproducts"
 #
 
-/*!40000 ALTER TABLE `waybill_eproduct` DISABLE KEYS */;
-/*!40000 ALTER TABLE `waybill_eproduct` ENABLE KEYS */;
+/*!40000 ALTER TABLE `waybill_eproducts` DISABLE KEYS */;
+INSERT INTO `waybill_eproducts` VALUES (1,'D8200A20181009001','苏C36910','15T','2018-12-07','徐州-徐州',48,90.0,15.00,0.86,619.20,'托盘烟','0000-00-00 00:00:00','2018-12-07 00:00:00',0,0,0);
+/*!40000 ALTER TABLE `waybill_eproducts` ENABLE KEYS */;
