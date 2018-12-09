@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.53)
-# Date: 2018-12-09 12:26:13
+# Date: 2018-12-09 21:34:56
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -30,6 +30,29 @@ CREATE TABLE `base_prices` (
 /*!40000 ALTER TABLE `base_prices` DISABLE KEYS */;
 INSERT INTO `base_prices` VALUES (1,'15吨以上','300公里以内',0.67,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(2,'15吨以上','301-1000公里',0.62,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(3,'15吨以上','1001-2500公里',0.57,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(4,'15吨以上','2501公里以上',0.54,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(5,'15吨以下','300公里以内',0.73,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(6,'15吨以下','301-2500公里',0.72,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(7,'15吨以下','2501公里以上',0.68,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(8,'成品烟移库',NULL,20.05,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(9,'烟叶、膨丝、材料移库',NULL,20.05,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(10,'烟梗移库',NULL,26.89,2,0,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(11,'南通托盘',NULL,0.62,1,1,1,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(12,'纸箱回收',NULL,0.25,1,1,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(13,'托盘回收',NULL,0.25,1,1,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04'),(14,'南通咀棒',NULL,3.62,3,0,0,NULL,'2018-11-27 23:29:04','2018-11-27 23:29:04');
 /*!40000 ALTER TABLE `base_prices` ENABLE KEYS */;
+
+#
+# Structure for table "car_no_types"
+#
+
+DROP TABLE IF EXISTS `car_no_types`;
+CREATE TABLE `car_no_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `no` varchar(255) NOT NULL DEFAULT '',
+  `type` int(11) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `no` (`no`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+#
+# Data for table "car_no_types"
+#
+
+/*!40000 ALTER TABLE `car_no_types` DISABLE KEYS */;
+INSERT INTO `car_no_types` VALUES (1,'苏C36910',15,'2018-11-28 00:43:18','2018-12-09 15:14:21'),(2,'苏C36903',15,'2018-11-28 00:43:18','2018-11-28 00:43:18'),(3,'苏C21581',30,'2018-11-28 00:43:18','2018-11-28 00:43:18'),(4,'苏C27205',30,'2018-11-28 00:43:18','2018-11-28 00:43:18'),(5,'苏C35285',30,'2018-11-28 00:43:18','2018-11-28 00:43:18'),(6,'苏C60881',25,'2018-11-28 00:43:18','2018-11-28 00:43:18');
+/*!40000 ALTER TABLE `car_no_types` ENABLE KEYS */;
 
 #
 # Structure for table "crumbs"
@@ -161,6 +184,29 @@ INSERT INTO `roles` VALUES (1,'超级管理员',NULL,'2018-11-10 14:15:22','2018
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 
 #
+# Structure for table "startend_mailages"
+#
+
+DROP TABLE IF EXISTS `startend_mailages`;
+CREATE TABLE `startend_mailages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `start` varchar(255) NOT NULL DEFAULT '',
+  `end` varchar(255) NOT NULL DEFAULT '',
+  `mileage` int(11) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+#
+# Data for table "startend_mailages"
+#
+
+/*!40000 ALTER TABLE `startend_mailages` DISABLE KEYS */;
+INSERT INTO `startend_mailages` VALUES (2,'徐州','徐州',48,'2018-12-09 21:18:31','2018-12-09 21:18:31'),(3,'徐州','苏州',520,'2018-12-09 21:18:40','2018-12-09 21:18:40'),(4,'徐州','南通',492,'2018-12-09 21:18:54','2018-12-09 21:18:54'),(5,'徐州','南京',372,'2018-12-09 21:19:09','2018-12-09 21:19:09'),(6,'徐州','无锡',496,'2018-12-09 21:19:39','2018-12-09 21:19:39'),(7,'徐州','扬州',361,'2018-12-09 21:20:14','2018-12-09 21:20:14'),(8,'徐州','泰州',400,'2018-12-09 21:20:36','2018-12-09 21:20:36'),(9,'徐州','连云港',215,'2018-12-09 21:21:08','2018-12-09 21:21:08'),(10,'徐州','淮安',195,'2018-12-09 21:21:20','2018-12-09 21:21:20'),(11,'徐州','常州',462,'2018-12-09 21:22:32','2018-12-09 21:22:32'),(12,'徐州','盐城',319,'2018-12-09 21:22:51','2018-12-09 21:22:51'),(13,'徐州','宿迁',119,'2018-12-09 21:24:15','2018-12-09 21:24:15'),(14,'徐州','镇江',395,'2018-12-09 21:25:32','2018-12-09 21:25:32');
+/*!40000 ALTER TABLE `startend_mailages` ENABLE KEYS */;
+
+#
 # Structure for table "ua_uxrs"
 #
 
@@ -211,8 +257,8 @@ DROP TABLE IF EXISTS `waybill_eproducts`;
 CREATE TABLE `waybill_eproducts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `order_number` varchar(255) NOT NULL DEFAULT '',
-  `car_no` varchar(255) NOT NULL DEFAULT '',
-  `car_type` varchar(255) NOT NULL DEFAULT '',
+  `car_no` varchar(255) NOT NULL DEFAULT '' COMMENT '车号',
+  `car_type` varchar(255) NOT NULL DEFAULT '' COMMENT '车型',
   `exec_date` date NOT NULL DEFAULT '0000-00-00',
   `start_end` varchar(255) NOT NULL DEFAULT '',
   `mileage` int(11) NOT NULL DEFAULT '0',

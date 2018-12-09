@@ -7,7 +7,7 @@ $(function () {
         success:function(data) {
             $.each(data,function (i,n) {
                 var b={};
-                b['label']=n['name'];
+                b['label']=n['no'];
                 b['value']=n['id'];
              a[i]=b;
             });

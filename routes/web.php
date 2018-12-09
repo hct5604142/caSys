@@ -104,6 +104,20 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
         return view('layers.order.eproduct');
     });
 
-    Route::get('/formula/show_waybill_order_list', 'Order\EProductController@showEProductOrder');
+    Route::get('/order/show_waybill_order_list', 'Order\EProductController@showEProductOrder');
+    Route::Post('/order/add_eproduct', 'Order\EProductController@AddEproductOrder');
+    Route::get('/order/get_car_nos', 'Order\EProductController@getCarNos');
+
+    Route::get('/order/car_no_type_manage', function (){
+        return view('layers.order.car_no_type_manage');
+    });
+    Route::get('/order/show_no_type_list', 'Order\CarNoTypeController@showCarNoTypeList');
+    Route::Post('/order/update_no_type', 'Order\CarNoTypeController@update');
+
+    Route::get('/order/start_end_manage', function (){
+        return view('layers.order.start_end_manage');
+    });
+    Route::get('/order/start_end_list', 'Order\StartEndController@showStartEndList');
+    Route::Post('/order/update_start_end', 'Order\StartEndController@update');
 
 });

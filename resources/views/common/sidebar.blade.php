@@ -161,6 +161,8 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>运单填写</a></li>
+                    <li><a href="{{asset('/order/car_no_type_manage')}}"><i class="fa fa-circle-o"></i>车号-车型管理</a></li>
+                    <li><a href="{{asset('/order/start_end_manage')}}"><i class="fa fa-circle-o"></i>起止-里程管理</a></li>
                     <li><a href="{{asset('/formula/base_price')}}"><i class="fa fa-circle-o"></i>当前季度执行价格公式</a></li>
                     <li><a href="{{asset('/formula/unit_manage')}}"><i class="fa fa-circle-o"></i>单位管理</a></li>
                     <li><a href="{{asset('/formula/base_price')}}"><i class="fa fa-circle-o"></i>当前执行文件阅览</a></li>

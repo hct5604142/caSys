@@ -1,9 +1,23 @@
 $(function () {
+    var a= new Array();
+    $.ajax({
+        url:"../order/get_car_nos",
+        async:false,
+        dataType:"json",
+        success:function(data) {
+            $.each(data,function (i,n) {
+                var b={};
+                b['label']=n['no'];
+                b['value']=n['id'];
+                a[i]=b;
+            });
+        }
+    });
     tableEdit = new $.fn.dataTable.Editor({
         table: "#example1",
         idSrc:  'id',
         ajax: {
-            url: "../formula/update_base_price",
+            url: "../order/add_eproduct",
             type: "POST",
             data: {
                 _token: csrf_token,
@@ -16,9 +30,12 @@ $(function () {
         }, {
             label: '承运车号',
             name: "car_no",
+            type:'select',
+            options:a,
         }, {
             label: '执行日期',
             name: "exec_date",
+            type: "datetime",
         },{
             label: '起止',
             name: "start_end",
@@ -45,7 +62,7 @@ $(function () {
         dom: "Bfrtip",
          "ordering": false,
         "ajax": { // 获取数据
-            "url": "../formula/show_waybill_order_list",
+            "url": "../order/show_waybill_order_list",
             "dataType": "json" //返回来的数据形式
         },
          idSrc:  'id',
