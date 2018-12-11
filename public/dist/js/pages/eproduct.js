@@ -37,8 +37,93 @@ $(function () {
             name: "exec_date",
             type: "datetime",
         },{
-            label: '起止',
-            name: "start_end",
+            label: '起点',
+            name: "start",
+            type:'select',
+            options:[{
+                label:'徐州',
+                value:'徐州',
+            },{
+                label:'南通',
+                value:'南通',
+            },{
+                label:'无锡',
+                value:'无锡',
+            },{
+                label:'南京',
+                value:'南京',
+            },{
+                label:'扬州',
+                value:'扬州',
+            },{
+                label:'泰州',
+                value:'泰州',
+            },{
+                label:'苏州',
+                value:'苏州',
+            },{
+                label:'连云港',
+                value:'连云港',
+            },{
+                label:'淮安',
+                value:'淮安',
+            },{
+                label:'盐城',
+                value:'盐城',
+            },{
+                label:'宿迁',
+                value:'宿迁',
+            },{
+                label:'镇江',
+                value:'镇江',
+            },{
+                label:'常州',
+                value:'常州',
+            }],
+        },{
+            label: '终点',
+            name: "end",
+            type:'select',
+            options:[{
+                label:'徐州',
+                value:'徐州',
+            },{
+                label:'南通',
+                value:'南通',
+            },{
+                label:'无锡',
+                value:'无锡',
+            },{
+                label:'南京',
+                value:'南京',
+            },{
+                label:'扬州',
+                value:'扬州',
+            },{
+                label:'泰州',
+                value:'泰州',
+            },{
+                label:'苏州',
+                value:'苏州',
+            },{
+                label:'连云港',
+                value:'连云港',
+            },{
+                label:'淮安',
+                value:'淮安',
+            },{
+                label:'盐城',
+                value:'盐城',
+            },{
+                label:'宿迁',
+                value:'宿迁',
+            },{
+                label:'镇江',
+                value:'镇江',
+            },{
+                label:'常州',
+                value:'常州',
+            }],
         },{
             label: '数量（箱）',
             name: "boxes_no"
@@ -75,7 +160,8 @@ $(function () {
             {'data': 'car_no'},
             {'data':'car_type'},
             {'data':'exec_date'},
-            {'data':'start_end'},
+            {'data':'start'},
+            {'data':'end'},
             {'data':'mileage'},
             {'data':'boxes_no'},
             {'data':'tonnage'},
