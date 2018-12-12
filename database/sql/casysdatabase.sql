@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.53)
-# Date: 2018-12-09 21:34:56
+# Date: 2018-12-12 20:07:46
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -94,7 +94,7 @@ CREATE TABLE `oil_price_chgs` (
 #
 
 /*!40000 ALTER TABLE `oil_price_chgs` DISABLE KEYS */;
-INSERT INTO `oil_price_chgs` VALUES (2,6.24,4.38,'2018-11-27 23:29:04','2018-11-28 00:43:18');
+INSERT INTO `oil_price_chgs` VALUES (2,7.46,6.10,'2018-11-27 23:29:04','2018-12-11 22:04:08');
 /*!40000 ALTER TABLE `oil_price_chgs` ENABLE KEYS */;
 
 #
@@ -260,8 +260,9 @@ CREATE TABLE `waybill_eproducts` (
   `car_no` varchar(255) NOT NULL DEFAULT '' COMMENT '车号',
   `car_type` varchar(255) NOT NULL DEFAULT '' COMMENT '车型',
   `exec_date` date NOT NULL DEFAULT '0000-00-00',
-  `start_end` varchar(255) NOT NULL DEFAULT '',
-  `mileage` int(11) NOT NULL DEFAULT '0',
+  `start` varchar(255) NOT NULL DEFAULT '',
+  `end` varchar(255) NOT NULL DEFAULT '',
+  `mileage` int(11) DEFAULT '0',
   `boxes_no` decimal(10,1) NOT NULL DEFAULT '0.0',
   `tonnage` decimal(10,2) NOT NULL DEFAULT '0.00',
   `unit_price` decimal(10,2) NOT NULL DEFAULT '0.00',
@@ -280,5 +281,5 @@ CREATE TABLE `waybill_eproducts` (
 #
 
 /*!40000 ALTER TABLE `waybill_eproducts` DISABLE KEYS */;
-INSERT INTO `waybill_eproducts` VALUES (1,'D8200A20181009001','苏C36910','15T','2018-12-07','徐州-徐州',48,90.0,15.00,0.86,619.20,'托盘烟','0000-00-00 00:00:00','2018-12-07 00:00:00',0,0,0);
+INSERT INTO `waybill_eproducts` VALUES (1,'D8200A20181009001','苏C36910','15','2018-10-09','徐州','徐州',48,90.0,15.00,0.00,0.00,NULL,'2018-12-11 19:37:46','2018-12-11 19:37:46',0,0,0);
 /*!40000 ALTER TABLE `waybill_eproducts` ENABLE KEYS */;
