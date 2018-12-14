@@ -34,6 +34,7 @@
                                     <th></th>
                                     <th>id</th>
                                     <th>订单编号</th>
+                                    <th>运输类别</th>
                                     <th>承运车号</th>
                                     <th>车型</th>
                                     <th>执行日期</th>

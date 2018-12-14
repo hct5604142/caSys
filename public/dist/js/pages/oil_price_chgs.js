@@ -11,9 +11,6 @@ $(function () {
             dataType: "json"
         },
         fields: [{
-            label: '账户',
-            name: "id",
-        }, {
             label: '姓名',
             name: "lsp"
         }, {

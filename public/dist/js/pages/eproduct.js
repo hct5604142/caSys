@@ -28,6 +28,18 @@ $(function () {
             label: '订单编号',
             name: "order_number",
         }, {
+            label:'烟草公司',
+            name:'transport_category',
+            type:'radio',
+            def:0,
+            options:[{
+                label:'是',
+                value:'1',
+            },{
+                label:'否',
+                value:'0',
+            },],
+        },{
             label: '承运车号',
             name: "car_no",
             type:'select',
@@ -135,7 +147,6 @@ $(function () {
             name: "remark"
         },
         ],
-
     });
 
 
@@ -157,6 +168,7 @@ $(function () {
             {'data': null, className: 'select-checkbox text-center', defaultContent: ""},
             {'data': "id",'visible':false},
             {'data': 'order_number',},
+            {'data':'transport_category','visible':false},
             {'data': 'car_no'},
             {'data':'car_type'},
             {'data':'exec_date'},

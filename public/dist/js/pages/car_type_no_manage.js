@@ -16,6 +16,20 @@ $(function () {
         },{
             label: '车型',
             name: "type",
+            type:'select',
+            options:[{
+                label:'10T',
+                value:'10',
+            },{
+                label:'15T',
+                value:'15',
+            },{
+                label:'25T',
+                value:'25',
+            },{
+                label:'30T',
+                value:'30',
+            },]
         },
         ],
     });
