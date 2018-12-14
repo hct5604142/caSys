@@ -34,7 +34,7 @@
                                     <th></th>
                                     <th>id</th>
                                     <th>订单编号</th>
-                                    <th>运输类别</th>
+                                    <th>烟草公司</th>
                                     <th>承运车号</th>
                                     <th>车型</th>
                                     <th>执行日期</th>
@@ -46,7 +46,6 @@
                                     <th>单价</th>
                                     <th>运费</th>
                                     <th>备注</th>
-                                    <th width="10%">更新时间</th>
                                 </tr>
                                 </thead>
                             </table>

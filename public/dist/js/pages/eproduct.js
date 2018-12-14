@@ -151,13 +151,60 @@ $(function () {
 
 
     $('#example1').on( 'click', 'tbody td:nth-child(2)', function (e) {
-        tableEdit.inline( this );
+        tableEdit.inline( this, {
+            submit: 'allIfChanged'
+        } );
     } );
-
+    $('#example1').on( 'click', 'tbody td:nth-child(3)', function (e) {
+        tableEdit.inline( this, {
+            submit: 'allIfChanged'
+        } );
+    } );
+    $('#example1').on( 'click', 'tbody td:nth-child(4)', function (e) {
+        tableEdit.inline( this, {
+            submit: 'allIfChanged'
+        } );
+    } );
+    $('#example1').on( 'click', 'tbody td:nth-child(6)', function (e) {
+        tableEdit.inline( this, {
+            submit: 'allIfChanged'
+        } );
+    } );
+    $('#example1').on( 'click', 'tbody td:nth-child(7)', function (e) {
+        tableEdit.inline( this, {
+            submit: 'allIfChanged'
+        } );
+    } );
+    $('#example1').on( 'click', 'tbody td:nth-child(8)', function (e) {
+        tableEdit.inline( this, {
+            submit: 'allIfChanged'
+        } );
+    } );
+    $('#example1').on( 'click', 'tbody td:nth-child(9)', function (e) {
+        tableEdit.inline( this, {
+            submit: 'allIfChanged'
+        } );
+    } );
+    $('#example1').on( 'click', 'tbody td:nth-child(10)', function (e) {
+        tableEdit.inline( this, {
+            submit: 'allIfChanged'
+        } );
+    } );
+    $('#example1').on( 'click', 'tbody td:nth-child(11)', function (e) {
+        tableEdit.inline( this, {
+            submit: 'allIfChanged'
+        } );
+    } );
+    $('#example1').on( 'click', 'tbody td:nth-child(14)', function (e) {
+        tableEdit.inline( this, {
+            submit: 'allIfChanged'
+        } );
+    } );
      table1 =$('#example1').DataTable({
-        dom: "Bfrtip",
-         "ordering": false,
-        "ajax": { // 获取数据
+         dom: "Bfrtip",
+         ordering:false,
+         //"order": [[ 1, "desc" ]],
+         "ajax": { // 获取数据
             "url": "../order/show_waybill_order_list",
             "dataType": "json" //返回来的数据形式
         },
@@ -168,7 +215,9 @@ $(function () {
             {'data': null, className: 'select-checkbox text-center', defaultContent: ""},
             {'data': "id",'visible':false},
             {'data': 'order_number',},
-            {'data':'transport_category','visible':false},
+            {'data':'transport_category',"render":function (val, type, row) {
+                    return val==1?'<small class="label bg-green">是</small>':'<small class="label bg-red">否</small>';
+                }},
             {'data': 'car_no'},
             {'data':'car_type'},
             {'data':'exec_date'},
@@ -180,7 +229,6 @@ $(function () {
             {'data':'unit_price'},
             {'data':'freight'},
             {'data':'remark'},
-            {'data':'updated_at'},
         ],
          //自定义列
         select: {
