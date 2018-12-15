@@ -180,11 +180,17 @@ class EProductController extends Controller
                         array_push($arr,round($price*$mileage*$tonnage,3,PHP_ROUND_HALF_UP));
                         return  $arr;
                     }
-
-
             }
         }
 
+    }
+
+    public function updateState(Request $request){
+        $items=WaybillEproduct::all();
+        foreach ($items as $item){
+            $item->delete();
+        }
+        return array('data'=>[]);
     }
 
 

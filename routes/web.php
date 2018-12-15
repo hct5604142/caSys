@@ -119,5 +119,6 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     });
     Route::get('/order/start_end_list', 'Order\StartEndController@showStartEndList');
     Route::Post('/order/update_start_end', 'Order\StartEndController@update');
+    Route::Post('/order/state', 'Order\EproductController@updateState');
 
 });

@@ -149,6 +149,24 @@ $(function () {
         ],
     });
 
+    tableEdit2= new $.fn.dataTable.Editor({
+        table: "#example1",
+        idSrc:  'id',
+        ajax: {
+            url: "../order/state",
+            type: "POST",
+            data: {
+                _token: csrf_token,
+            },
+            dataType: "json"
+        },
+        fields: [{
+            label: 'id',
+            name: "id",
+        }
+        ],
+    });
+
 
     $('#example1').on( 'click', 'tbody td:nth-child(2)', function (e) {
         tableEdit.inline( this, {
@@ -236,29 +254,44 @@ $(function () {
             selector: 'td:first-child',
         },
          "columnDefs": [
-             {
-                 "targets": [-1, -6],
-                 "orderable": false  //禁止排序
-             },
-             {
-                 "targets": [-4,],
-                 "searchable": false //禁止搜索
-             }
+             // {
+             //     "targets": [-1, -6],
+             //     "orderable": false  //禁止排序
+             // },
+             // {
+             //     "targets": [-4,],
+             //     "searchable": false //禁止搜索
+             // },
          ],
          buttons: [
              {
                  text: '新增成品订单条目',
                  editor:tableEdit,
                  extend: 'create',
-                 formTitle:'新增基准运价规则',
+                 formTitle:'新增成品订单条目',
                  formButtons:'提交',
              },
              {
-                 text: '删除基准运价规则',
+                 text: '删除成品订单条目',
                  editor:tableEdit,
                  extend: 'remove',
-                 formTitle:'删除基准运价规则',
+                 formTitle:'删除成品订单条目',
+                 formMessage:'请确认删除',
                  formButtons:'提交',
+             },
+             {
+                 text: '保存',
+                 extend: 'remove',
+                 editor:tableEdit2,
+                 formTitle:'保存',
+                 formMessage:'请确认保存',
+             },
+             {
+                 text: '全部保存',
+                // editor:,
+                 action: function ( e, dt, node, config ) {
+                     tableEdit2.edit( table1.rows().indexes(), false ).submit();
+                 }
              },
          ],
     });

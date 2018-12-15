@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.53)
-# Date: 2018-12-14 20:21:41
+# Date: 2018-12-15 21:36:23
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -275,12 +275,11 @@ CREATE TABLE `waybill_eproducts` (
   `check_price` tinyint(1) NOT NULL DEFAULT '0' COMMENT '价格核算',
   `leader_approval` tinyint(1) NOT NULL DEFAULT '0' COMMENT '领导审批',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "waybill_eproducts"
 #
 
 /*!40000 ALTER TABLE `waybill_eproducts` DISABLE KEYS */;
-INSERT INTO `waybill_eproducts` VALUES (3,'D8200A20181009001','苏C36910','15','2018-12-19','徐州','徐州',48,90.0,15.00,0.86,619.20,1,NULL,'2018-12-14 19:41:15','2018-12-14 19:41:15',0,0,0),(4,'D8200A20181009013','苏C21581','30','2018-12-12','徐州','南通',492,158.4,23.84,0.65,7624.03,0,'托盘烟20T烟3.84T','2018-12-14 19:56:23','2018-12-14 19:56:23',0,0,0);
 /*!40000 ALTER TABLE `waybill_eproducts` ENABLE KEYS */;
