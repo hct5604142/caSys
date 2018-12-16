@@ -160,7 +160,19 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>运单填写</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>运单填写</a></li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-circle-o"></i>运单填写<span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>公司1</a></li>
+                            <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>公司2</a></li>
+                            <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>公司3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>运单查看</a></li>
                     <li><a href="{{asset('/order/car_no_type_manage')}}"><i class="fa fa-circle-o"></i>车号-车型管理</a></li>
                     <li><a href="{{asset('/order/start_end_manage')}}"><i class="fa fa-circle-o"></i>起止-里程管理</a></li>
                     <li><a href="{{asset('/formula/base_price')}}"><i class="fa fa-circle-o"></i>当前季度执行价格公式</a></li>

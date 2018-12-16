@@ -285,6 +285,7 @@ $(function () {
                  editor:tableEdit2,
                  formTitle:'保存',
                  formMessage:'请确认保存',
+                 formButtons:'确定',
              },
              {
                  text: '全部保存',

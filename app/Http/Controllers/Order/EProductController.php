@@ -15,7 +15,7 @@ class EProductController extends Controller
 {
     //
     public function showEProductOrder(){
-        return array('data'=>WaybillEProduct::all()->toArray());
+        return array('data'=>WaybillEProduct::where('check_add',0)->get()->toArray());
     }
 
     public function AddEproductOrder(EproductRequest $request){
@@ -186,11 +186,24 @@ class EProductController extends Controller
     }
 
     public function updateState(Request $request){
-        $items=WaybillEproduct::all();
-        foreach ($items as $item){
-            $item->delete();
+        if($request->input('action')=='edit'){
+            $items=WaybillEproduct::all();
+            foreach ($items as $item){
+                $item->check_add=1;
+                $item->save();
+            }
+            return array('data'=>[]);
+        }elseif ($request->input('action')=='remove'){
+            $id=null;
+            foreach ($request->input('data') as $key =>$value){
+                $id=$key;
+            }
+            $item=WaybillEproduct::find($id);
+            $item->check_add=1;
+            if($item->save()){
+                return array('data'=>[]);
+            }
         }
-        return array('data'=>[]);
     }
 
 
