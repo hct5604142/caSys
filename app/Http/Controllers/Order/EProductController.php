@@ -10,15 +10,39 @@ use App\Models\StartendMailage;
 use App\Models\WaybillEproduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Routing\Route;
 
 class EProductController extends Controller
 {
     //
-    public function showEProductOrder(){
-        return array('data'=>WaybillEProduct::where('check_add',0)->get()->toArray());
+    public function showEProductOrder(Request $request){
+        if($request->company ==1){
+            $company='鑫发货运有限公司';
+            return array('data'=>WaybillEProduct::where('check_add',0)->where('company',$company)->get()->toArray());
+        }
+        if($request->company ==2){
+            $company='顺达运输有限公司';
+            return array('data'=>WaybillEProduct::where('check_add',0)->where('company',$company)->get()->toArray());
+        }
+        if($request->company ==3){
+            $company='安文运输有限公司';
+            return array('data'=>WaybillEProduct::where('check_add',0)->where('company',$company)->get()->toArray());
+        }
+
     }
 
     public function AddEproductOrder(EproductRequest $request){
+        $company=null;
+        if($request->company ==1){
+            $company='鑫发货运有限公司';
+        }
+        if($request->company ==2){
+            $company='顺达运输有限公司';
+        }
+        if($request->company ==3){
+            $company='安文运输有限公司';
+        }
+
         if($request->input('action')!='remove'){
             $orderNumber=null;
             $carNo=null;
@@ -60,6 +84,7 @@ class EProductController extends Controller
                 $item->mileage=$mileage;
                 $item->unit_price=($this->calUnitPrice($transportCategory,$mileage,15,$carNo))[0];
                 $item->freight=($this->calUnitPrice($transportCategory,$mileage,15,$carNo))[1];
+                $item->company=$company;
                 $item->save();
 
 
@@ -76,6 +101,7 @@ class EProductController extends Controller
                 $item2->mileage=$mileage;
                 $item2->unit_price=($this->calUnitPrice($transportCategory,$mileage,$tonnage,$carNo,1))[0];
                 $item2->freight=($this->calUnitPrice($transportCategory,$mileage,$tonnage,$carNo,1))[1];
+                $item2->company=$company;
                 $item2->save();
                 return array('data'=>WaybillEproduct::where('order_number',$orderNumber)->get()->toArray());
             }else{
@@ -103,6 +129,7 @@ class EProductController extends Controller
                 $item->mileage=$mileage;
                 $item->unit_price=($this->calUnitPrice($transportCategory,$mileage,$tonnage,$carNo))[0];
                 $item->freight=($this->calUnitPrice($transportCategory,$mileage,$tonnage,$carNo))[1];
+                $item->company=$company;
                 if($item->save()){
                     if($request->input('action')=='edit'){
                         return array('data'=>[WaybillEproduct::find($item->id)->toArray()]);

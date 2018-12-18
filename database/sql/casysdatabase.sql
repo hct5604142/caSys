@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.53)
-# Date: 2018-12-16 16:24:23
+# Date: 2018-12-18 14:16:44
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -275,13 +275,14 @@ CREATE TABLE `waybill_eproducts` (
   `check_price` tinyint(1) NOT NULL DEFAULT '0' COMMENT '价格核算',
   `leader_approval` tinyint(1) NOT NULL DEFAULT '0' COMMENT '领导审批',
   `check_add` tinyint(1) NOT NULL DEFAULT '0' COMMENT '增加运单状态',
+  `company` varchar(255) NOT NULL DEFAULT '' COMMENT '公司名称',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "waybill_eproducts"
 #
 
 /*!40000 ALTER TABLE `waybill_eproducts` DISABLE KEYS */;
-INSERT INTO `waybill_eproducts` VALUES (17,'D8200A20181009001','苏C36910','15','2018-12-26','徐州','徐州',48,90.0,15.00,0.86,619.20,1,'托盘烟','2018-12-16 11:30:09','2018-12-16 11:37:41',0,0,0,1),(18,'D8200A20181009008','苏C36903','15','2018-12-13','徐州','苏州',520,90.0,15.00,0.76,5928.00,0,'托盘烟','2018-12-16 11:31:06','2018-12-16 11:37:41',0,0,0,1);
+INSERT INTO `waybill_eproducts` VALUES (17,'D8200A20181009001','苏C36910','15','2018-12-26','徐州','徐州',48,90.0,15.00,0.86,619.20,1,'托盘烟','2018-12-16 11:30:09','2018-12-17 20:48:04',0,0,0,0,'鑫发货运有限公司'),(18,'D8200A20181009008','苏C36910','15','2018-12-13','徐州','苏州',520,90.0,15.00,0.76,5928.00,0,'托盘烟','2018-12-16 11:31:06','2018-12-17 20:47:52',0,0,0,0,'鑫发货运有限公司');
 /*!40000 ALTER TABLE `waybill_eproducts` ENABLE KEYS */;

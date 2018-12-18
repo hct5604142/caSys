@@ -103,8 +103,8 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     Route::get('/order/eproduct', function (){
         return view('layers.order.eproduct');
     });
-
-    Route::get('/order/show_waybill_order_list', 'Order\EProductController@showEProductOrder');
+    Route::get('/order/show_waybill_order_list/', 'Order\EProductController@showEProductOrder');
+    Route::get('/order/show_waybill_order_list/{company}', 'Order\EProductController@showEProductOrder');
     Route::Post('/order/add_eproduct', 'Order\EProductController@AddEproductOrder');
     Route::get('/order/get_car_nos', 'Order\EProductController@getCarNos');
 

@@ -167,9 +167,9 @@
                 </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>公司1</a></li>
-                            <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>公司2</a></li>
-                            <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>公司3</a></li>
+                            <li><a href="{{asset('/order/eproduct?company=1')}}"><i class="fa fa-circle-o"></i>顺达运输有限公司</a></li>
+                            <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>安文运输有限公司</a></li>
+                            <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>鑫发货运有限公司</a></li>
                         </ul>
                     </li>
                     <li><a href="{{asset('/order/eproduct')}}"><i class="fa fa-circle-o"></i>运单查看</a></li>

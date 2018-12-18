@@ -17,7 +17,7 @@ $(function () {
         table: "#example1",
         idSrc:  'id',
         ajax: {
-            url: "../order/add_eproduct",
+            url: "../order/add_eproduct?company="+GetQueryString('company'),
             type: "POST",
             data: {
                 _token: csrf_token,
@@ -223,7 +223,7 @@ $(function () {
          ordering:false,
          //"order": [[ 1, "desc" ]],
          "ajax": { // 获取数据
-            "url": "../order/show_waybill_order_list",
+            "url": "../order/show_waybill_order_list?company="+GetQueryString('company'),
             "dataType": "json" //返回来的数据形式
         },
          idSrc:  'id',
@@ -337,21 +337,11 @@ $(function () {
                 "searchable": false //禁止搜索
             }
         ],
-        // buttons: [
-        //     {
-        //         text: '新增基准运价规则',
-        //         editor:editorAdd,
-        //         extend: 'create',
-        //         formTitle:'新增基准运价规则',
-        //         formButtons:'提交',
-        //     },
-        //     {
-        //         text: '删除基准运价规则',
-        //         editor:editorDel,
-        //         extend: 'remove',
-        //         formTitle:'删除基准运价规则',
-        //         formButtons:'提交',
-        //     },
-        // ],
     });
 })
+function GetQueryString(name)
+{
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+    if(r!=null)return  unescape(r[2]); return null;
+}
