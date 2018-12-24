@@ -121,4 +121,8 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     Route::Post('/order/update_start_end', 'Order\StartEndController@update');
     Route::Post('/order/state', 'Order\EproductController@updateState');
 
+    Route::get('/order/eproduct_query', function (){
+        return view('layers.order.eproduct_query');
+    });
+    Route::get('/order/show_waybill_order_query_list', 'Order\EProductQueryController@showEProductOrder');
 });
