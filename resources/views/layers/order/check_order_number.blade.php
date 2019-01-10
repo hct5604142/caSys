@@ -31,9 +31,10 @@
                                 <thead>
                                 <tr>
                                     {{--<th style="width: 8%"></th>--}}
+                                    <th></th>
                                     <th>id</th>
-                                    <th>运输公司</th>
                                     <th>订单编号</th>
+                                    <th>烟草公司</th>
                                     <th>承运车号</th>
                                     <th>车型</th>
                                     <th>执行日期</th>
@@ -45,10 +46,6 @@
                                     <th>单价</th>
                                     <th>运费</th>
                                     <th>备注</th>
-                                    <th>保存</th>
-                                    <th>核量</th>
-                                    <th>核价</th>
-                                    <th>领导审核</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -85,5 +82,5 @@
     <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <script src="{{asset('bower_components/datatables-editor/dataTables.editor.js')}}"></script>
     <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-    <script src="{{asset('dist/js/pages/eproduct_query.js')}}"></script>
+    <script src="{{asset('dist/js/pages/check_order_number.js')}}"></script>
 @endsection

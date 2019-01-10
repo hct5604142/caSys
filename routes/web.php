@@ -125,4 +125,12 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
         return view('layers.order.eproduct_query');
     });
     Route::get('/order/show_waybill_order_query_list', 'Order\EProductQueryController@showEProductOrder');
+
+
+    Route::get('/order/check_order_number', function (){
+        return view('layers.order.check_order_number');
+    });
+    Route::get('/order/show_check_number_eproduct_order_list', 'Order\CheckOrderNumberController@showEProductOrder');
+    Route::get('/order/show_check_number_eproduct_order_list/{company}', 'Order\CheckOrderNumberController@showEProductOrder');
+
 });

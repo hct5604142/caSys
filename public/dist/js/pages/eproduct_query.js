@@ -47,6 +47,7 @@ $(function () {
          'paging':true,
         "columns": [ //定义列数据来源
             {'data': "id",'visible':false},
+            {'data':'company',},
             {'data': 'order_number',},
             {'data': 'car_no'},
             {'data':'car_type'},
