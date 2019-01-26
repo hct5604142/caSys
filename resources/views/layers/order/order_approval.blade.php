@@ -27,6 +27,12 @@
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade in active" id="eproduct" style="padding-top: 1em;">
+                            <div class="input-group date col-md-2">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right" id="datepicker">
+                            </div>
                             <table id="example1" class="table table-striped table-bordered table-hover" style="width:100%">
                                 <thead>
                                 <tr>
@@ -34,6 +40,7 @@
                                     <th></th>
                                     <th>id</th>
                                     <th>订单编号</th>
+                                    <th>烟草公司</th>
                                     <th>承运车号</th>
                                     <th>车型</th>
                                     <th>执行日期</th>
@@ -81,5 +88,6 @@
     <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <script src="{{asset('bower_components/datatables-editor/dataTables.editor.js')}}"></script>
     <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-    <script src="{{asset('dist/js/pages/check_order_number.js')}}"></script>
+    <script src="{{asset('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{asset('dist/js/pages/order_approval.js')}}"></script>
 @endsection

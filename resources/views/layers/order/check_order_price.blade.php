@@ -34,6 +34,7 @@
                                     <th></th>
                                     <th>id</th>
                                     <th>订单编号</th>
+                                    <th>烟草公司</th>
                                     <th>承运车号</th>
                                     <th>车型</th>
                                     <th>执行日期</th>
@@ -81,5 +82,5 @@
     <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <script src="{{asset('bower_components/datatables-editor/dataTables.editor.js')}}"></script>
     <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-    <script src="{{asset('dist/js/pages/check_order_number.js')}}"></script>
+    <script src="{{asset('dist/js/pages/check_order_price.js')}}"></script>
 @endsection

@@ -30,7 +30,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>徐州卷烟厂</b>统计核算</a>
+    <b>徐州卷烟厂</b>投资管理处运输核算管理系统
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

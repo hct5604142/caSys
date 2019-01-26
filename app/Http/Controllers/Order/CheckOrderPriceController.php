@@ -6,12 +6,12 @@ use App\Models\WaybillEproduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CheckOrderNumberController extends Controller
+class CheckOrderPriceController extends Controller
 {
     //
     public function showEProductOrder(Request $request){
         $company=$this->getCompanyName($request->company);
-            return array('data'=>WaybillEProduct::where('check_add',1)->where('check_number',0)->where('company',$company)->get()->toArray());
+        return array('data'=>WaybillEProduct::where('check_add',1)->where('check_number',1)->where('check_price',0)->where('company',$company)->get()->toArray());
     }
 
     public function editEproductOrder(Request $request){
@@ -21,13 +21,13 @@ class CheckOrderNumberController extends Controller
                 $id=$value['id'];
             }
             $wayBill=WaybillEproduct::find($id);
-            $wayBill->check_number=1;
+            $wayBill->check_price=1;
             $wayBill->save();
             return array('data'=>[]);
         }elseif($request->input('action')=='edit'){
-            $wayBills=WaybillEproduct::where('check_add',1)->where('check_number',0)->get();
+            $wayBills=WaybillEproduct::where('check_add',1)->where('check_number',1)->where('check_price',0)->get();
             foreach ($wayBills as $value){
-                $value->check_number=1;
+                $value->check_price=1;
                 $value->save();
             }
             return array('data'=>[]);
@@ -45,5 +45,4 @@ class CheckOrderNumberController extends Controller
             return '安文运输有限公司';
         }
     }
-
 }

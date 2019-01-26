@@ -153,7 +153,7 @@ $(function () {
         table: "#example1",
         idSrc:  'id',
         ajax: {
-            url: "../order/check_number_save?company="+GetQueryString('company'),
+            url: "../order/check_price_save?company="+GetQueryString('company'),
             type: "POST",
             data: {
                 _token: csrf_token,
@@ -178,17 +178,7 @@ $(function () {
         tableEdit.inline( this, {
             submit: 'allIfChanged'
         } );
-    } );
-    $('#example1').on( 'click', 'tbody td:nth-child(7)', function (e) {
-        tableEdit.inline( this, {
-            submit: 'allIfChanged'
-        } );
-    } );
-    $('#example1').on( 'click', 'tbody td:nth-child(8)', function (e) {
-        tableEdit.inline( this, {
-            submit: 'allIfChanged'
-        } );
-    } );
+    });
     $('#example1').on( 'click', 'tbody td:nth-child(9)', function (e) {
         tableEdit.inline( this, {
             submit: 'allIfChanged'
@@ -214,7 +204,7 @@ $(function () {
          ordering:false,
          //"order": [[ 1, "desc" ]],
          "ajax": { // 获取数据
-            "url": "../order/show_check_number_eproduct_order_list?company="+GetQueryString('company'),
+            "url": "../order/show_check_price_eproduct_order_list?company="+GetQueryString('company'),
             "dataType": "json" //返回来的数据形式
         },
          idSrc:  'id',
@@ -224,6 +214,9 @@ $(function () {
             {'data': null, className: 'select-checkbox text-center', defaultContent: ""},
             {'data': "id",'visible':false},
             {'data': 'order_number',},
+            {'data':'transport_category',"render":function (val, type, row) {
+                    return val==1?'<small class="label bg-green">是</small>':'<small class="label bg-red">否</small>';
+                }},
             {'data': 'car_no'},
             {'data':'car_type'},
             {'data':'exec_date'},
@@ -253,15 +246,15 @@ $(function () {
          ],
          buttons: [
              {
-                 text: '保存',
+                 text: '核算提交',
                  extend: 'remove',
                  editor:tableEdit2,
-                 formTitle:'保存',
-                 formMessage:'请确认保存',
+                 formTitle:'核算提交',
+                 formMessage:'请确认提交',
                  formButtons:'确定',
              },
              {
-                 text: '全部保存',
+                 text: '全部提交',
                 // editor:,
                  action: function ( e, dt, node, config ) {
                      tableEdit2.edit( table1.rows().indexes(), false ).submit();

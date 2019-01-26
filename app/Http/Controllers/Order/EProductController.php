@@ -146,7 +146,6 @@ class EProductController extends Controller
                 return array('data'=>[]);
             }
         }
-
     }
     public function getCarNos(){
         return json_encode(CarNoType::select('id','no')->get()->toArray());

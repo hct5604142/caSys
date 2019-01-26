@@ -133,4 +133,19 @@ Route::group(['middleware' => ['checklogin','authorize']], function () {
     Route::get('/order/show_check_number_eproduct_order_list', 'Order\CheckOrderNumberController@showEProductOrder');
     Route::get('/order/show_check_number_eproduct_order_list/{company}', 'Order\CheckOrderNumberController@showEProductOrder');
 
+    Route::Post('/order/check_number_save', 'Order\CheckOrderNumberController@editEproductOrder');
+
+    Route::get('/order/check_order_price', function (){
+        return view('layers.order.check_order_price');
+    });
+
+    Route::get('/order/show_check_price_eproduct_order_list', 'Order\CheckOrderPriceController@showEProductOrder');
+    Route::get('/order/show_check_price_eproduct_order_list/{company}', 'Order\CheckOrderPriceController@showEProductOrder');
+    Route::Post('/order/check_price_save', 'Order\CheckOrderPriceController@editEproductOrder');
+
+    Route::get('/order/order_approval', function (){
+        return view('layers.order.order_approval');
+    });
+    Route::get('/order/show_order_approval_eproduct_order_list', 'Order\OrderApprovalController@showEProductOrder');
+    Route::get('/order/show_order_approval_eproduct_order_list/{company}', 'Order\OrderApprovalController@showEProductOrder');
 });
